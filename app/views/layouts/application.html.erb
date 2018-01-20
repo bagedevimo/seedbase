@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Seedbase</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <nav>
+      <h1>SEEDBASE</h1>
+
+      <ul>
+        <li><%= link_to "Dashboard", dashboard_index_path %></li>
+        <li><a href="#">Upcoming</a>
+        <li><%= link_to "Events", events_path %></li>
+      </ul>
+
+      <span>
+        <%= link_to "Organise an event", new_event_path %>
+
+        <% if current_user %>
+          <%= image_tag profile_picture_url %>
+          <%= link_to "Log out", destroy_sessions_path %>
+        <% else %>
+          <%= link_to "Log in", new_session_path %>
+          <%= link_to "Register", new_user_path %>
+        <% end %>
+      </span>
+    </nav>
+    <%= yield %>
+  </body>
+</html>

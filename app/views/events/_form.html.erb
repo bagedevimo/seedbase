@@ -1,0 +1,9 @@
+<%= form_with model: @event, local: true do |f| %>
+  <% unless @event.errors.empty? %>
+    <%= @event.errors.full_messages.join("<br />") %>
+  <% end %>
+
+  <%= f.text_field :name, placeholder: "Name" %>
+
+  <%= f.button "Create" %>
+<% end %>
