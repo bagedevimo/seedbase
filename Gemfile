@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.4.2'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0.beta2'
 # Use postgresql as the database for Active Record
@@ -27,6 +25,7 @@ gem 'audited'
 
 # Use ActiveStorage variant
 gem 'mini_magick', '~> 4.8'
+gem "minitest-ci"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -49,6 +48,3 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
