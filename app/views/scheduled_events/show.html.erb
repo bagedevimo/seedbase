@@ -1,0 +1,13 @@
+<div class="content">
+  <h1>PxlJam <%= @scheduled_event.identifier %></h1>
+
+  <%= notice %>
+
+  <p>
+    Menu thing
+
+    <ul>
+      <li><%= link_to "Edit", edit_event_schedule_path(@event, @scheduled_event) %></li>
+      <li><%= link_to "View the competitors", event_schedule_competitors_path(@event, @scheduled_event) %></li>
+    </ul>
+</div>

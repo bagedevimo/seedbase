@@ -5,5 +5,14 @@
 
   <%= f.text_field :name, placeholder: "Name" %>
 
-  <%= f.button "Create" %>
+  <p>
+    Banner image<br />
+    <%= f.file_field :banner %>
+  </p>
+
+  <% if @event.persisted? %>
+    <%= f.button "Save" %>
+  <% else %>
+    <%= f.button "Create" %>
+  <% end %>
 <% end %>

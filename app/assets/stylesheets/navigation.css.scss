@@ -1,21 +1,33 @@
+$light_gray: lighten(black, 30%);
+$nav-height: 100px;
+$nav-padding: 10px;
+
 nav {
   font-size: 1.2em;
   background-color: white;
-  height: 80px;
+  height: $nav-height;
+  line-height: $nav-height - 20px;
   width: 100%;
-
-  padding: 18px;
   box-sizing: border-box;
+  padding: $nav-padding;
 
+  vertical-align: top;
+
+  color: $light_gray;
   padding-left: 40px;
 
-  color: lighten(black, 20%);
+  * {
+    box-sizing: border-box;
+  }
 
   h1 {
     font-size: 2em;
     margin: 0;
+    vertical-align: top;
 
     display: inline-block;
+
+    color: black;
   }
 
   ul {
@@ -24,8 +36,6 @@ nav {
     margin: 0;
 
     display: inline-block;
-    padding-top: 0.5em;
-    vertical-align: top;
 
     li {
       display: inline-block;
@@ -35,9 +45,25 @@ nav {
     }
   }
 
+  a {
+    text-decoration: none;
+    color: $light_gray;
+
+    &:hover {
+      color: black;
+    }
+  }
+
   span {
-    padding-top: 0.5em;
-    vertical-align: top;
     float: right;
+    height: $nav-height - 20px;
+    line-height: 60px;
+  }
+
+  div.profile {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
   }
 }

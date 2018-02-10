@@ -1,0 +1,8 @@
+<div class="content">
+  <h1>Competitors for <%= @event.name %> <%= @scheduled_event.identifier %></h1>
+
+  <ul>
+    <% @competitors.each do |competitor| %>
+      <li><%= competitor.name %></li>
+    <% end %>
+  </ul>

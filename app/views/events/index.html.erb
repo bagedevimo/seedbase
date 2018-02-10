@@ -1,10 +1,12 @@
 <div class="content">
-  <h1>Events</h1>
+  <div class="container">
+    <h1>Events</h1>
 
-  <ul>
-    <% @events.each do |event| %>
-      <li><%= link_to event.name, event %></li>
-    <% end %>
-  </ul>
+    <ul>
+      <% @events.each do |event| %>
+        <li><%= link_to_event event.name, event %></li>
+      <% end %>
+    </ul>
+  </div>
 </div>
 

@@ -22,7 +22,7 @@
         <%= link_to "Organise an event", new_event_path %>
 
         <% if current_user %>
-          <%= image_tag profile_picture_url %>
+        <%= content_tag "div", class: "profile", style: "background-image: url('#{profile_picture_url}');" do; end %>
           <%= link_to "Log out", destroy_sessions_path %>
         <% else %>
           <%= link_to "Log in", new_session_path %>

@@ -1,3 +1,26 @@
 // Place all the styles related to the events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.banner {
+  position: absolute;
+  z-index: -1;
+  float: left;
+  width: 100%;
+  height: 350px;
+  background-size: cover;
+}
+
+.content.next-event-banner {
+  height: 90px;
+  margin-top: 150px;
+
+  padding: 20px;
+  padding-left: 20px;
+  box-sizing: border-box;
+  line-height: 1.6rem;
+}
+
+.content.event-info {
+  margin-top: 30px;
+}

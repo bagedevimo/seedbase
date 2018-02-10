@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_01_19_222440) do
+ActiveRecord::Schema.define(version: 2018_02_10_022245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -59,11 +59,40 @@ ActiveRecord::Schema.define(version: 2018_01_19_222440) do
     t.index ["user_id", "user_type"], name: "user_index"
   end
 
+  create_table "competitors", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id", null: false
+    t.uuid "scheduled_event_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "events", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
+  end
+
+  create_table "organisers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id"
+    t.uuid "event_id"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "scheduled_events", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "event_id"
+    t.datetime "starts_at", null: false
+    t.datetime "ends_at", null: false
+    t.text "location_text", null: false
+    t.text "lat", null: false
+    t.text "long", null: false
+    t.integer "maximum_team_size", null: false
+    t.datetime "signups_open_at"
+    t.datetime "signups_close_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -72,6 +101,7 @@ ActiveRecord::Schema.define(version: 2018_01_19_222440) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.datetime "deleted_at"
   end
 
 end
