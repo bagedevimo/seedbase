@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :find_event, except: [:index, :new, :create, :show]
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :authenticate_organiser!, except: [:index, :show]
+  before_action :authenticate_organiser!, except: [:index, :show, :new, :create]
 
   def index
     @events = Event.all.active
