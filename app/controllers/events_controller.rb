@@ -20,14 +20,12 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
 
     ActiveRecord::Base.transaction do
-      if @event.save
-        @event.organisers.create! user: current_user
-        redirect_to @event
-      else
-        rollback
-        render :new
-      end
+      @event.save!
+      @event.organisers.create! user: current_user
+      redirect_to named_event_path(@event.name.downcase) and return
     end
+
+    render :new
   end
 
   def edit; end

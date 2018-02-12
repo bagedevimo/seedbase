@@ -10,23 +10,29 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="content next-event-banner">
-    Starts at <%= @scheduled.starts_at.strftime("%l:%M%P %A #{@scheduled.starts_at.day.ordinalize} %B %Y") %><br />
-    Runs for <%= distance_of_time_in_words(@scheduled.duration) %>
+<% if @scheduled %>
+  <div class="container">
+    <div class="content next-event-banner">
+      Starts at <%= @scheduled.starts_at.strftime("%l:%M%P %A #{@scheduled.starts_at.day.ordinalize} %B %Y") %><br />
+      Runs for <%= distance_of_time_in_words(@scheduled.duration) %>
+    </div>
   </div>
-</div>
+<% end %>
 
 <div class="container">
   <div class="container column-left">
     <div class="content">
       <h1><%= @event.name %></h1>
       
-      <%= @scheduled.location_text %>
+      <% if @scheduled %>
+        <%= @scheduled.location_text %>
+      <% end %>
     </div>
   </div>
 
-  <div class="container column-right">
-    <img src="https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyDLMSBuFd-Oi8kDcwH95IbIb7-DIcI20Ic&center=<%= @scheduled.lat %>,<%= @scheduled.long %>&zoom=15&size=300x300" />
-  </div>
+  <% if @scheduled %>
+    <div class="container column-right">
+      <img src="https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyDLMSBuFd-Oi8kDcwH95IbIb7-DIcI20Ic&center=<%= @scheduled.lat %>,<%= @scheduled.long %>&zoom=15&size=300x300" />
+    </div>
+  <% end %>
 </div>
