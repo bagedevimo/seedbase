@@ -21,21 +21,19 @@
         <span>
           <%= link_to "Organise an event", new_event_path %>
 
-      <span>
-        <%= link_to "Organise an event", new_event_path %>
+          <% if current_user %>
+            <%= link_to "Log out", destroy_sessions_path %>
+            <% else %>
+            <%= link_to "Log in", new_session_path %>
+            <%= link_to "Register", new_user_path %>
+          <% end %>
+        </span>
 
         <% if current_user %>
           <%= link_to edit_user_path(current_user) do %>
             <%= content_tag "div", "", class: "profile", style: "background-image: url('#{profile_picture_url}?s=120');" %>
           <% end %>
-          <%= link_to "Log out", destroy_sessions_path %>
-          <% else %>
-          <%= link_to "Log in", new_session_path %>
-          <%= link_to "Register", new_user_path %>
-          <% end %>
-        </span>
-
-        <%= content_tag "div", class: "profile", style: "background-image: url('#{profile_picture_url}?s=120');" do; end if current_user %>
+        <% end %>
       </nav>
     </header>
     <%= yield %>
