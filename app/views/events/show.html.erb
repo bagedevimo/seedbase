@@ -1,5 +1,7 @@
 <% if @event.banner.attached? %>
   <div class="banner" style="background-image: url('<%= url_for(@event.banner) %>');"></div>
+<% else %>
+  <div class="banner"></div>
 <% end %>
 
 <div class="container">
@@ -40,7 +42,9 @@
 
   <% if @scheduled %>
     <div class="container column-right">
-      <img src="https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyDLMSBuFd-Oi8kDcwH95IbIb7-DIcI20Ic&center=<%= @scheduled.lat %>,<%= @scheduled.long %>&zoom=15&size=300x300" />
+      <div class="content">
+        <img src="https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyDLMSBuFd-Oi8kDcwH95IbIb7-DIcI20Ic&center=<%= @scheduled.lat %>,<%= @scheduled.long %>&zoom=15&size=300x300" />
+      </div>
     </div>
   <% end %>
 </div>
