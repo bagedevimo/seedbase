@@ -15,6 +15,14 @@
     <div class="content next-event-banner">
       Starts at <%= @scheduled.starts_at.strftime("%l:%M%P %A #{@scheduled.starts_at.day.ordinalize} %B %Y") %><br />
       Runs for <%= distance_of_time_in_words(@scheduled.duration) %>
+
+      <!-- temp as fuck -->
+      <br />
+      <% if @competitor %>
+        You're attending. <%= button_to "Stop attending", event_schedule_competitor_path(@event, @scheduled, @competitor), method: :delete %>
+      <% else %>
+        <%= link_to "Attend", new_event_schedule_competitor_path(@event, @scheduled) %>
+      <% end %>
     </div>
   </div>
 <% end %>

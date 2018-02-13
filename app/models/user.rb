@@ -8,4 +8,8 @@ class User < ApplicationRecord
 
   has_many :organisers
   has_many :events, through: :organisers
+
+  def attending?(scheduled_event)
+    scheduled_event.competitors.where(user: self).any?
+  end
 end

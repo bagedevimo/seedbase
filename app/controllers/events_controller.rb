@@ -10,6 +10,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.where("lower(events.name) = '#{params[:event_name]}'").first
     @scheduled = @event.scheduled_events.next_first.first
+    @competitor = @scheduled.competitors.where(user: current_user).first
   end
 
   def new
