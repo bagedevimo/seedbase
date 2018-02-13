@@ -6,9 +6,23 @@
   z-index: -1;
   float: left;
   width: 100%;
-  height: 350px;
+  padding-top: 27.7%;
   background-color: rgba(20, 30, 10, 0.25);
   background-size: cover;
+  background-position: bottom right;
+  transition: padding .2s ease-in-out;
+
+  @media (max-width: 1400px) {
+    padding-top: 35%;
+  }
+
+  @media (max-width: 1200px) {
+    padding-top: 45%;
+  }
+
+  @media (max-width: 1000px) {
+    padding-top: 55%;
+  }
 }
 
 .content.next-event-banner {
