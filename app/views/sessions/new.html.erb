@@ -1,12 +1,14 @@
 <div class="content">
-  <h1>Log in</h1>
+  <div class="container narrow">
+    <h1>Log in</h1>
 
-  <%= form_with url: sessions_path, method: :post, local: true do |f| %>
-    <div class="alert">Alert: <%= flash[:alert] %></div>
+    <%= form_with url: sessions_path, method: :post, local: true do |f| %>
+      <div class="alert">Alert: <%= flash[:alert] %></div>
 
-    <%= f.text_field :email, placeholder: "Email" %>
-    <%= f.password_field :password, placeholder: "Password" %>
+      <%= f.text_field :email, placeholder: "Email" %>
+      <%= f.password_field :password, placeholder: "Password" %>
 
-    <%= f.button "Log in" %>
-  <% end %>
+      <%= f.button "Log in" %>
+    <% end %>
+  </div>
 </div>

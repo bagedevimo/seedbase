@@ -1,0 +1,27 @@
+<% if flash[:notice] %>
+  <div class="flash notice"><%= flash[:notice] %></div>
+<% end %>
+
+<%= form_with model: @user, local: true do |f| %>
+  <p>
+    <%= f.text_field :email, placeholder: "Email" %>
+  </p>
+
+  <p>
+    <%= f.password_field :password, placeholder: "Password" %>
+  <br />
+    <%= f.password_field :password_confirmation, placeholder: "Confirm password" %>
+  </p>
+
+  <p>
+    <%= f.text_field :name, placeholder: "Name" %>
+  </p>
+
+  <p>
+    <% if @user.persisted? %>
+      <%= f.button "Save" %>
+    <% else %>
+      <%= f.button "Create user" %>
+    <% end %>
+  </p>
+<% end %>

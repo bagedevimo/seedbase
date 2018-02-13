@@ -4,13 +4,13 @@
   <div class="banner"></div>
 <% end %>
 
-<div class="container">
-  <div class="content top-attached">
-    <% if current_user_organiser_for?(@event) %>
+<% if current_user_organiser_for?(@event) %>
+  <div class="container">
+    <div class="content top-attached">
       You're an organiser for <%= @event.name %>, want to go the <%= link_to "organiser panel", event_panel_path(@event) %>?
-    <% end %>
+    </div>
   </div>
-</div>
+<% end %>
 
 <% if @scheduled %>
   <div class="container">

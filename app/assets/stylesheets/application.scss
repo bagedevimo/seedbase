@@ -14,6 +14,10 @@
  *= require_self
  */
 
+
+/* Should be colours.scss or summin */
+$off-white: darken(white, 4%);
+
 html, body {
   margin: 0;
   padding: 0;
@@ -38,6 +42,10 @@ body {
     width: 300px;
     float: right;
   }
+
+  &.narrow {
+    width: 400px;
+  }
 }
 
 .content {
@@ -56,5 +64,34 @@ body {
     padding: 10px;
     border-top-right-radius: 0px;
     border-top-left-radius: 0px;
+  }
+}
+
+.flash {
+  width: 100%;
+  background: pink;
+  color: $off-white;
+  padding: 10px;
+  border-radius: 2px;
+  box-sizing: border-box;
+
+  &.notice {
+    background: rgb(95, 145, 226);
+  }
+}
+
+form {
+  input {
+    width: 100%;
+    padding: 8px;
+    font-size: 0.8rem;
+
+    box-sizing: border-box;
+  }
+
+  button {
+    padding: 8px;
+    width: 100%;
+    font-size: 0.8rem;
   }
 }
