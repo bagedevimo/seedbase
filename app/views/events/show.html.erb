@@ -14,17 +14,20 @@
 
 <% if @scheduled %>
   <div class="container">
-    <div class="content next-event-banner">
-      Starts at <%= @scheduled.starts_at.strftime("%l:%M%P %A #{@scheduled.starts_at.day.ordinalize} %B %Y") %><br />
-      Runs for <%= distance_of_time_in_words(@scheduled.duration) %>
+    <div class="content event-control-bar">
+      <div class="event-avatar"></div>
+      <div class="control-bar-details">
+        <div>
+          Starts at <%= @scheduled.starts_at.strftime("%l:%M%P %A #{@scheduled.starts_at.day.ordinalize} %B %Y") %><br />
+          Runs for <%= distance_of_time_in_words(@scheduled.duration) %>
+        </div>
 
-      <!-- temp as fuck -->
-      <br />
-      <% if @competitor %>
+        <% if @competitor %>
         You're attending. <%= button_to "Stop attending", event_schedule_competitor_path(@event, @scheduled, @competitor), method: :delete %>
-      <% else %>
-        <%= link_to "Attend", new_event_schedule_competitor_path(@event, @scheduled) %>
-      <% end %>
+        <% else %>
+        <%= link_to "Attend", new_event_schedule_competitor_path(@event, @scheduled), class: "button" %>
+        <% end %>
+      </div>
     </div>
   </div>
 <% end %>

@@ -25,13 +25,45 @@
   }
 }
 
-.content.next-event-banner {
-  height: 90px;
+.event-control-bar {
+  $padding: 0.625em;
+  $button-size: 1.4em;
+  $button-padding: 1em;
+
   margin-top: 150px;
-  padding: 20px;
-  padding-left: 20px;
-  line-height: 1.6rem;
+  line-height: 1.6em;
   font-weight: $medium;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+
+  .event-avatar {
+    width: $button-size + $button-padding*2 + $padding*4;
+    background: red;
+
+    &::after {
+      content: "";
+      padding-top: 100%;
+      width: 100%;
+      background: green;
+    }
+  }
+
+  .control-bar-details {
+    padding: $padding;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    > :nth-child(2) {
+      margin-left: auto;
+    }
+
+    > .button {
+      padding: $button-padding $button-padding*1.4;
+      font-size: $button-size;
+    }
+  }
 }
 
 .content.event-info {
