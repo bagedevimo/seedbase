@@ -10,9 +10,10 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
  *= require_self
- */
+*/
+@import "base/variables";
+@import "modules/**/*";
 
 
 /* Should be colours.scss or summin */
@@ -21,11 +22,16 @@ $off-white: darken(white, 4%);
 html, body {
   margin: 0;
   padding: 0;
+  font-weight: $regular;
 }
 
 body {
   background: rgb(222, 222, 222);
-  font-family: sans-serif;
+  font-family: 'Quicksand', sans-serif;
+}
+
+h1 {
+  font-weight: normal;
 }
 
 .container {
@@ -95,3 +101,5 @@ form {
     font-size: 0.8rem;
   }
 }
+
+@import "*";
