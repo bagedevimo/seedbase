@@ -1,52 +1,18 @@
-$light_gray: lighten(black, 30%);
-$nav-height: 100px;
-$nav-padding: 10px;
+$nav-item-size: 1.625em;
 
 nav {
-  font-size: 1.2em;
-  background-color: white;
-  height: $nav-height;
-  line-height: $nav-height - 20px;
-  width: 100%;
-  box-sizing: border-box;
-  padding: $nav-padding;
-
   vertical-align: top;
-
-  color: $light_gray;
-  padding-left: 40px;
-
-  * {
-    box-sizing: border-box;
-  }
-
-  h1 {
-    font-size: 2em;
-    margin: 0;
-    vertical-align: top;
-    font-weight: $bold;
-    display: inline-block;
-    color: black;
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-
-    display: inline-block;
-
-    li {
-      display: inline-block;
-
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-  }
+  width: 100%;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
 
   a {
     text-decoration: none;
-    color: $light_gray;
+    color: $light-gray;
+    font-size: $nav-item-size;
+    padding: 1.25em .5em;
+    margin-left: 1em;
 
     &:hover {
       color: black;
@@ -54,16 +20,12 @@ nav {
   }
 
   span {
-    float: right;
-    height: $nav-height - 20px;
-    line-height: 60px;
+    display: flex;
+    align-items: center;
   }
 
-  div.profile {
-    display: inline-block;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-size: cover;
+  > :nth-child(2) {
+    margin-left: auto;
+    margin-right: 1em;
   }
 }

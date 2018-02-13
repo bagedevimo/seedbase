@@ -12,6 +12,7 @@
  *
  *= require_self
 */
+@import "base/fonts";
 @import "base/variables";
 @import "modules/**/*";
 
@@ -26,12 +27,13 @@ html, body {
 }
 
 body {
-  background: rgb(222, 222, 222);
+  background: #e5e5e5;
   font-family: 'Quicksand', sans-serif;
 }
 
 h1 {
-  font-weight: normal;
+  font-weight: $regular;
+  margin: 0;
 }
 
 .container {
