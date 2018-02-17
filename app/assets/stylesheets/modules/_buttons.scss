@@ -4,9 +4,10 @@
   border-radius: 3px;
   padding: 1.1ch 1.1em;
   text-decoration: none;
-  font-weight: $regular;
+  font-weight: $medium;
   outline: none;
   border: none;
+  cursor: pointer;
 
   &.affirmative {
     background: $action-affirmative;
