@@ -13,6 +13,7 @@
  *= require_self
 */
 @import "base/fonts";
+@import "base/functions";
 @import "base/variables";
 @import "modules/**/*";
 
@@ -90,10 +91,14 @@ h1 {
 
 form {
   input {
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  textarea,
+  input[type="text"] {
     width: 100%;
     padding: 8px;
     font-size: 0.8rem;
-
     box-sizing: border-box;
   }
 

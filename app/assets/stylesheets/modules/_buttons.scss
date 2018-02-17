@@ -4,5 +4,50 @@
   border-radius: 3px;
   padding: 1.1ch 1.1em;
   text-decoration: none;
-  font-weight: $medium;
+  font-weight: $regular;
+  outline: none;
+  border: none;
+
+  &.affirmative {
+    background: $action-affirmative;
+  }
+
+  &.stateful {
+    position: relative;
+    overflow: hidden;
+
+    &::after,
+    &::before {
+      content: "";
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    &::before {
+      height: 100%;
+    }
+
+    &::after {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &::after {
+      content: attr(data-action);
+    }
+
+    &.active::before {
+      background-color: $action-warning;
+    }
+
+    &.active:hover::before,
+    &.active:hover::after {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
 }
