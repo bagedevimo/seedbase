@@ -49,7 +49,8 @@
   <% if @scheduled %>
     <div class="container column-right">
       <div class="content">
-        <img src="https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyDLMSBuFd-Oi8kDcwH95IbIb7-DIcI20Ic&center=<%= @scheduled.lat %>,<%= @scheduled.long %>&zoom=15&size=300x300" />
+        <%= content_tag 'div', '', class: "map", data: {lat: @scheduled.lat, long: @scheduled.long} %>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiBkB9k8UQh4nAS8X9LrEYfNn25MnwGZY&callback=initMap"></script>
       </div>
     </div>
   <% end %>
