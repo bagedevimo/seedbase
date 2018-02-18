@@ -42,20 +42,22 @@ function initMap() {
   );
 
   var eventMap = document.querySelector('.map');
-  var uluru = {lat: Number(eventMap.dataset.lat), lng: Number(eventMap.dataset.long)};
+  var uluru = {
+    lat: Number(eventMap.dataset.lat),
+    lng: Number(eventMap.dataset.long)
+  };
 
   var map = new google.maps.Map(eventMap, {
-   center: uluru,
-   zoom: 15,
-   mapTypeControlOptions: {
-     mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
-             'styled_map']
-   }
+    center: uluru,
+    zoom: 15,
+    mapTypeControlOptions: {
+      mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain', 'styled_map']
+    }
   });
 
   var marker = new google.maps.Marker({
-   position: uluru,
-   map: map
+    position: uluru,
+    map: map
   });
 
   map.mapTypes.set('styled_map', styledMapType);
