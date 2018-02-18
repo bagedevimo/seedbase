@@ -44,7 +44,7 @@ function initMap() {
   var eventMap = document.querySelector('.map');
   var uluru = {lat: Number(eventMap.dataset.lat), lng: Number(eventMap.dataset.long)};
 
-  var map = new google.maps.Map(document.querySelector('.map'), {
+  var map = new google.maps.Map(eventMap, {
    center: uluru,
    zoom: 15,
    mapTypeControlOptions: {
