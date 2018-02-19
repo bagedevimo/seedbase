@@ -57,7 +57,7 @@ h1 {
   }
 }
 
-.content {
+.surface {
   background: white;
   box-shadow: 0px 1px 4px -2px grey;
 
@@ -66,6 +66,7 @@ h1 {
 
   h1 {
     margin-top: 0;
+    font-size: 3.25em;
   }
 
   &.top-attached {
@@ -74,6 +75,10 @@ h1 {
     border-top-right-radius: 0px;
     border-top-left-radius: 0px;
   }
+}
+
+.content {
+  padding: 2.5em;
 }
 
 .flash {

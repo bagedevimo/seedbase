@@ -9,13 +9,13 @@ nav {
 
   a {
     text-decoration: none;
-    color: $light-gray;
+    color: $dark-grey;
     font-size: $nav-item-size;
     padding: 1.25em .5em;
     margin-left: 1em;
 
     &:hover {
-      color: black;
+      color: #000;
     }
   }
 

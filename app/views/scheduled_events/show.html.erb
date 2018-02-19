@@ -6,14 +6,14 @@
 
 <% if current_user_organiser_for?(@event) %>
   <div class="container">
-    <div class="content top-attached">
+    <div class="surface top-attached">
       You're an organiser for <%= @event.name %>, want to go to <%= link_to "organiser mangement", edit_event_path(@event) %>, or <%= link_to "event management", edit_scheduled_event_path(@event, @scheduled_event) %>?
     </div>
   </div>
 <% end %>
 
 <div class="container">
-  <div class="content event-control-bar">
+  <div class="surface event-control-bar">
     <div class="event-avatar"></div>
     <div class="control-bar-details">
       <div>
@@ -37,10 +37,11 @@
 
 <div class="container">
   <div class="container column-left">
-    <div class="content">
+    <div class="surface content">
       <h1><%= @event.name %></h1>
-
-      <%= @scheduled_event.location_text %>
+      <div class="subheading">
+        <%= @scheduled_event.location_text %>
+      </div>
 
       <% if current_competitor&.team %>
         You're competiting in team <%= current_competitor.team.name %>
