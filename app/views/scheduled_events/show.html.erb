@@ -1,13 +1,64 @@
-<div class="content">
-  <h1>PxlJam <%= @scheduled_event.identifier %></h1>
+<% if @event.banner.attached? %>
+  <div class="banner" style="background-image: url('<%= url_for(@event.banner) %>');"></div>
+<% else %>
+  <div class="banner"></div>
+<% end %>
 
-  <%= notice %>
+<% if current_user_organiser_for?(@event) %>
+  <div class="container">
+    <div class="content top-attached">
+      You're an organiser for <%= @event.name %>, want to go to <%= link_to "organiser mangement", edit_event_path(@event) %>, or <%= link_to "event management", edit_scheduled_event_path(@event, @scheduled_event) %>?
+    </div>
+  </div>
+<% end %>
 
-  <p>
-    Menu thing
+<div class="container">
+  <div class="content event-control-bar">
+    <div class="event-avatar"></div>
+    <div class="control-bar-details">
+      <div>
+        Starts at <%= @scheduled_event.starts_at.strftime("%l:%M%P %A #{@scheduled_event.starts_at.day.ordinalize} %B %Y") %><br />
+        Runs for <%= distance_of_time_in_words(@scheduled_event.duration) %>
+      </div>
 
-    <ul>
-      <li><%= link_to "Edit", edit_event_schedule_path(@event, @scheduled_event) %></li>
-      <li><%= link_to "View the competitors", event_schedule_competitors_path(@event, @scheduled_event) %></li>
-    </ul>
+      <% if current_competitor %>
+        <%= form_with url: competitor_path(current_competitor), local: true, method: :delete do |f| %>
+          <%= f.button "Attending", class: "button stateful active affirmative", data: { action: "Leave" } %>
+        <% end %>
+      <% else %>
+        <%= form_with url: competitors_path, local: true do |f| %>
+          <%= f.hidden_field :scheduled_event, value: @scheduled_event.id %>
+          <%= f.button "Attend" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container column-left">
+    <div class="content">
+      <h1><%= @event.name %></h1>
+
+      <%= @scheduled_event.location_text %>
+
+      <% if current_competitor&.team %>
+        You're competiting in team <%= current_competitor.team.name %>
+      <% else %>
+        <h3>Create a team</h3>
+
+        <%= form_with model: @scheduled_event.teams.new, url: new_team_path, local: true do |f| %>
+          <%= f.text_field :name, placeholder: "Team name" %>
+          <%= f.button "Create team" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="container column-right">
+    <div class="content">
+      <%= content_tag 'div', '', class: "map", data: {lat: @scheduled_event.lat, long: @scheduled_event.long} %>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiBkB9k8UQh4nAS8X9LrEYfNn25MnwGZY&callback=initMap"></script>
+    </div>
+  </div>
 </div>

@@ -1,7 +1,6 @@
 class ScheduledEventsController < ApplicationController
-  before_action :find_event
-  before_action :authenticate_organiser!
   before_action :find_scheduled_event, only: [:show, :edit, :update]
+  before_action :authenticate_organiser!
 
   def show; end
 
@@ -22,13 +21,11 @@ class ScheduledEventsController < ApplicationController
   end
 
   def edit
-    @save_path = event_schedule_path
   end
 
   def update
-    @save_path = event_schedule_path
     if @scheduled_event.update_attributes(scheduled_event_params)
-      redirect_to event_schedule_path(@event, @scheduled_event), notice: "Changes saved" and return
+      redirect_to scheduled_event_path(@event, @scheduled_event), notice: "Changes saved" and return
     else
       render :edit
     end
@@ -36,16 +33,15 @@ class ScheduledEventsController < ApplicationController
 
   private
 
-  def find_event
-    @event = Event.find(params[:event_id])
-  end
-
   def find_scheduled_event
-    @scheduled_event = @event.scheduled_events.find(params[:id])
+    @event = Event.find_by_slug(params[:event_id])
+    @scheduled_event = @event.scheduled_events.find_by_slug(params[:id])
+    @event = @scheduled_event.event
   end
 
   def scheduled_event_params
     params.require(:scheduled_event).permit(
+      :name,
       :starts_at,
       :ends_at,
       :location_text,

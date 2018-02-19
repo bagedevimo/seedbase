@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :find_event, except: [:index, :new, :create, :show]
+  before_action :find_event, except: [:index, :new, :create]
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :authenticate_organiser!, except: [:index, :show, :new, :create]
 
@@ -8,9 +8,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.where("lower(events.name) = '#{params[:event_name]}'").first
-    @scheduled = @event.scheduled_events.next_first.first
-    @competitor = @scheduled.competitors.where(user: current_user).first
+    @upcoming_scheduled_events = @event.scheduled_events
   end
 
   def new
@@ -23,7 +21,7 @@ class EventsController < ApplicationController
     ActiveRecord::Base.transaction do
       @event.save!
       @event.organisers.create! user: current_user
-      redirect_to named_event_path(@event.name.downcase) and return
+      redirect_to @event
     end
 
     render :new
@@ -33,13 +31,13 @@ class EventsController < ApplicationController
 
   def update
     @event.update_attributes(event_params)
-    redirect_to event_panel_path(@event), notice: "Changes saved"
+    redirect_to edit_event_path(@event), notice: "Changes saved"
   end
 
   private
 
   def find_event
-    @event = Event.find(params[:id])
+    @event = Event.find_by_slug(params[:id])
   end
 
   def event_params

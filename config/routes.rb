@@ -12,14 +12,16 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :edit, :update]
 
-  resources :events, except: [:show] do
-    get '/panel', controller: 'organiser_panel', action: :index
+  resources :events, only: [:index, :new]
 
-    resources :schedule, controller: 'scheduled_events', except: [:index] do
-      resources :competitors
-      resources :teams
-    end
-  end
+  resources :competitors
+  resources :teams
 
-  get '/:event_name', controller: 'events', action: :show, as: "named_event"
+  get '/:id', controller: 'events', action: :show, as: 'event'
+  patch '/:id', controller: 'events', action: :update
+  get '/:id/edit', controller: 'events', action: :edit, as: 'edit_event'
+
+  get '/:event_id/:id', controller: 'scheduled_events', action: :show, as: 'scheduled_event'
+  patch '/:event_id/:id', controller: 'scheduled_events', action: :update
+  get '/:event_id/:id/edit', controller: 'scheduled_events', action: :edit, as: 'edit_scheduled_event'
 end

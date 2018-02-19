@@ -1,4 +1,9 @@
-<%= form_with model: @scheduled_event, url: @save_path, local: true do |f| %>
+<%= form_with model: @scheduled_event, url: scheduled_event_path(@event, @scheduled_event), local: true do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name, disabled: @scheduled_event.persisted? %>
+  </p>
+  
   <p>
     <%= f.label :starts_at %>
     <%= f.datetime_field :starts_at, required: true %>

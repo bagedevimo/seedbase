@@ -3,6 +3,10 @@ module ApplicationHelper
     @logged_in_user ||= User.find_by(id: session[:user_id])
   end
 
+  def current_competitor
+    @scheduled_event&.competitors&.where(user: current_user)&.first  
+  end
+
   def profile_picture_url
     gravtar_url
   end
@@ -21,9 +25,5 @@ module ApplicationHelper
       .where("events.deleted_at IS NULL")
       .where(user: current_user)
       .count > 0
-  end
-
-  def link_to_event(text, event)
-    link_to text, named_event_path(event.name.downcase)
   end
 end

@@ -11,4 +11,12 @@ class Event < ApplicationRecord
 
   has_one_attached :banner
   has_one_attached :avatar
+
+  def find_named(name)
+    Event.where("LOWER(name) = #{name}").first
+  end
+
+  def to_param
+    name.parameterize
+  end
 end
