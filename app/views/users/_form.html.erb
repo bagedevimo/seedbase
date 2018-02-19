@@ -24,4 +24,5 @@
       <%= f.button "Create user" %>
     <% end %>
   </p>
+  <%= link_to "Log out", destroy_sessions_path if current_user %>
 <% end %>
