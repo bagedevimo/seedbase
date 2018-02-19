@@ -43,16 +43,24 @@
         <%= @scheduled_event.location_text %>
       </div>
 
-      <% if current_competitor&.team %>
-        You're competiting in team <%= current_competitor.team.name %>
-      <% else %>
-        <h3>Create a team</h3>
+      <p></p>
 
-        <%= form_with model: @scheduled_event.teams.new, url: new_team_path, local: true do |f| %>
-          <%= f.text_field :name, placeholder: "Team name" %>
-          <%= f.button "Create team" %>
+      <section>
+        <h1>Teams</h1>
+
+        <p></p>
+
+        <% if current_competitor&.team %>
+          <p>You're competiting in team <%= current_competitor.team.name %></p>
+        <% else %>
+          <p>Create a team</p>
+
+          <%= form_with model: @scheduled_event.teams.new, url: new_team_path, local: true do |f| %>
+            <%= f.text_field :name, placeholder: "Team name" %>
+            <%= f.button "Create team" %>
+          <% end %>
         <% end %>
-      <% end %>
+      </section>
     </div>
   </div>
 

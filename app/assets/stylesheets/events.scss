@@ -69,6 +69,16 @@
   }
 }
 
+section {
+
+  > h1 {
+    text-transform: uppercase;
+    font-weight: $regular;
+    font-size: 1em;
+    color: $dark-grey;
+  }
+}
+
 .content.event-info {
   margin-top: 30px;
 }
