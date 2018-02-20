@@ -12,6 +12,7 @@
   display: grid;
   grid-gap: 30px;
   grid-template-columns: 5fr 2fr;
+  align-items: start;
   grid-template-areas:
     "management management"
     "control-bar control-bar"
@@ -48,16 +49,12 @@ footer {
   margin: 0 auto;
   margin-bottom: 30px;
 
-  &.column-left {
+  > .main {
     grid-area: main;
-    width: 670px;
-    float: left;
   }
 
-  &.column-right {
+  > aside {
     grid-area: aside;
-    width: 300px;
-    float: right;
   }
 
   &.narrow {
