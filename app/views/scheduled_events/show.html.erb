@@ -3,16 +3,15 @@
 <% else %>
   <div class="banner"></div>
 <% end %>
-
-<% if current_user_organiser_for?(@event) %>
-  <div class="container">
-    <div class="surface top-attached">
-      You're an organiser for <%= @event.name %>, want to go to <%= link_to "organiser mangement", edit_event_path(@event) %>, or <%= link_to "event management", edit_scheduled_event_path(@event, @scheduled_event) %>?
-    </div>
+<div class="width-constraint grid-event">
+  <% if current_user_organiser_for?(@event) %>
+  <div class="management">
+    <span>You're an organiser for <%= @event.name %>.</span>
+    <%= link_to "Manage", edit_scheduled_event_path(@event, @scheduled_event), class: "button" %>
+    <%= link_to "Your events", edit_event_path(@event), class: "button" %>
   </div>
-<% end %>
+  <% end %>
 
-<div class="container">
   <div class="surface event-control-bar">
     <div class="event-avatar"></div>
     <div class="control-bar-details">
@@ -22,20 +21,18 @@
       </div>
 
       <% if current_competitor %>
-        <%= form_with url: competitor_path(current_competitor), local: true, method: :delete do |f| %>
-          <%= f.button "Attending", class: "button stateful active affirmative", data: { action: "Leave" } %>
-        <% end %>
+      <%= form_with url: competitor_path(current_competitor), local: true, method: :delete do |f| %>
+      <%= f.button "Attending", class: "button stateful active affirmative", data: { action: "Leave" } %>
+      <% end %>
       <% else %>
-        <%= form_with url: competitors_path, local: true do |f| %>
-          <%= f.hidden_field :scheduled_event, value: @scheduled_event.id %>
-          <%= f.button "Attend" %>
-        <% end %>
+      <%= form_with url: competitors_path, local: true do |f| %>
+      <%= f.hidden_field :scheduled_event, value: @scheduled_event.id %>
+      <%= f.button "Attend" %>
+      <% end %>
       <% end %>
     </div>
   </div>
-</div>
 
-<div class="container">
   <div class="container column-left">
     <div class="surface content">
       <h1><%= @event.name %></h1>
@@ -51,14 +48,14 @@
         <p></p>
 
         <% if current_competitor&.team %>
-          <p>You're competiting in team <%= current_competitor.team.name %></p>
+        <p>You're competiting in team <%= current_competitor.team.name %></p>
         <% else %>
-          <p>Create a team</p>
+        <p>Create a team</p>
 
-          <%= form_with model: @scheduled_event.teams.new, url: new_team_path, local: true do |f| %>
-            <%= f.text_field :name, placeholder: "Team name" %>
-            <%= f.button "Create team" %>
-          <% end %>
+        <%= form_with model: @scheduled_event.teams.new, url: new_team_path, local: true do |f| %>
+        <%= f.text_field :name, placeholder: "Team name" %>
+        <%= f.button "Create team" %>
+        <% end %>
         <% end %>
       </section>
     </div>
@@ -70,4 +67,5 @@
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiBkB9k8UQh4nAS8X9LrEYfNn25MnwGZY&callback=initMap"></script>
     </div>
   </div>
+
 </div>

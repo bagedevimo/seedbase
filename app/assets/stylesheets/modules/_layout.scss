@@ -1,0 +1,82 @@
+// Grids
+.grid-layout {
+  display: grid;
+  grid:
+    "header"
+    "body"
+    "footer"
+    / 1fr;
+}
+
+.grid-event {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: 5fr 2fr;
+  grid-template-areas:
+    "management management"
+    "control-bar control-bar"
+    "main aside";
+}
+
+// Main blocks
+$logo-size: 2.5em;
+
+header {
+  grid-area: header;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 1.25em;
+  box-sizing: border-box;
+
+  > a {
+    font-size: $logo-size;
+    font-weight: $bold;
+    color: #000;
+    text-decoration: none;
+  }
+}
+
+footer {
+  grid-area: footer;
+}
+
+.width-constraint {
+  grid-area: body;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+
+  &.column-left {
+    grid-area: main;
+    width: 670px;
+    float: left;
+  }
+
+  &.column-right {
+    grid-area: aside;
+    width: 300px;
+    float: right;
+  }
+
+  &.narrow {
+    width: 400px;
+  }
+}
+
+.surface {
+  background: white;
+  box-shadow: 0px 1px 3px rgba(23, 23, 23, 0.2);
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+.content {
+  padding: 2.5em;
+
+  > h1 {
+    margin-top: 0;
+    font-size: 3.25em;
+  }
+}

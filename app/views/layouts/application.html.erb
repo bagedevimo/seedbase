@@ -9,29 +9,32 @@
   </head>
 
   <body>
-    <header>
-      <a href="/">Seedbase</a>
-      <nav>
-        <span>
-          <%= link_to "Events", events_path %>
-        </span>
+    <div class="grid-layout">
+      <header>
+        <a href="/">Seedbase</a>
+        <nav>
+          <span>
+            <%= link_to "Events", events_path %>
+          </span>
 
-        <span>
-          <% if current_user %>
+          <span>
+            <% if current_user %>
             <%= link_to "Organise an event", new_event_path %>
-          <% else %>
+            <% else %>
             <%= link_to "Log in", new_session_path %>
             <%= link_to "Register", new_user_path %>
-          <% end %>
-        </span>
+            <% end %>
+          </span>
 
-        <% if current_user %>
+          <% if current_user %>
           <%= link_to edit_user_path(current_user) do %>
-            <%= content_tag "div", "", class: "profile", style: "background-image: url('#{profile_picture_url}?s=120');" %>
+          <%= content_tag "div", "", class: "profile", style: "background-image: url('#{profile_picture_url}?s=120');" %>
           <% end %>
-        <% end %>
-      </nav>
-    </header>
-    <%= yield %>
+          <% end %>
+        </nav>
+      </header>
+      <%= yield %>
+      <footer></footer>
+    </div>
   </body>
 </html>

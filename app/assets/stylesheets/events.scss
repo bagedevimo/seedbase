@@ -1,16 +1,16 @@
 // Place all the styles related to the events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 .banner {
-  position: absolute;
-  z-index: -1;
-  float: left;
-  width: 100%;
   padding-top: 27.7%;
   background-color: rgba(20, 30, 10, 0.25);
   background-size: cover;
   background-position: bottom right;
   transition: padding .2s ease-in-out;
+  grid-area: 2 / auto;
+  grid-column : 1 / last-line;
+  align-self: start;
 
   @media (max-width: 1400px) {
     padding-top: 35%;
@@ -26,6 +26,7 @@
 }
 
 .event-control-bar {
+  grid-area: control-bar;
   $padding: 0.625em;
   $button-size: 1.4em;
   $button-padding: 1em;
@@ -66,6 +67,24 @@
       padding: $button-padding $button-padding*1.4;
       font-size: $button-size;
     }
+  }
+}
+
+// Management panel needs a rethink
+.management {
+  grid-area: management;
+  display: flex;
+  background: rgba(125, 125, 125, 0.3);
+  box-shadow: 0px 1px 3px rgba(23, 23, 23, 0.2);
+  border-radius: 3px;
+  padding: 1ch 1ch 1ch 1em;
+  margin-top: 20px;
+  color: #fff;
+  align-items: center;
+
+  > :nth-child(2) {
+    margin-left: auto;
+    margin-right: 1em;
   }
 }
 

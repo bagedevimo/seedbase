@@ -37,50 +37,6 @@ h1 {
   margin: 0 0 .15em;
 }
 
-.container {
-  width: 1000px;
-  margin: 0 auto;
-  margin-bottom: 30px;
-
-  &.column-left {
-    width: 670px;
-    float: left;
-  }
-
-  &.column-right {
-    width: 300px;
-    float: right;
-  }
-
-  &.narrow {
-    width: 400px;
-  }
-}
-
-.surface {
-  background: white;
-  box-shadow: 0px 1px 3px rgba(23, 23, 23, 0.2);
-
-  border-radius: 3px;
-  box-sizing: border-box;
-
-  &.top-attached {
-    background: rgba(white, 0.75);
-    padding: 10px;
-    border-top-right-radius: 0px;
-    border-top-left-radius: 0px;
-  }
-}
-
-.content {
-  padding: 2.5em;
-
-  > h1 {
-    margin-top: 0;
-    font-size: 3.25em;
-  }
-}
-
 .flash {
   width: 100%;
   background: pink;
