@@ -13,7 +13,7 @@
   <% end %>
 
   <div class="surface event-control-bar">
-    <div class="event-avatar"></div>
+    <%= image_tag "placeholder-event", class: "event-avatar" %>
     <div class="control-bar-details">
       <div>
         Starts at <%= @scheduled_event.starts_at.strftime("%l:%M%P %A #{@scheduled_event.starts_at.day.ordinalize} %B %Y") %><br />

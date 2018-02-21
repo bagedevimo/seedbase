@@ -37,17 +37,14 @@
   box-sizing: border-box;
   display: flex;
   align-items: center;
+  overflow: hidden;
+  position: relative;
 
-  .event-avatar {
-    width: $button-size + $button-padding*2 + $padding*4;
-    background: red;
-
-    &::after {
-      content: "";
-      padding-top: 100%;
-      width: 100%;
-      background: green;
-    }
+  > .event-avatar {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
   }
 
   .control-bar-details {
@@ -57,6 +54,7 @@
     align-items: center;
     font-size: 1.1em;
     color: $dark-grey;
+    margin-left: $button-size + $button-padding*2 + $padding*5;
 
     > :nth-child(2) {
       margin-left: auto;
