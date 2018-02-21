@@ -17,6 +17,19 @@
     "management management"
     "control-bar control-bar"
     "main aside";
+
+  @media(max-width: 850px) {
+    grid-gap: 15px;
+  }
+
+  @media(max-width: 650px) {
+    grid-gap: 10px;
+    grid-template-areas:
+      "management management"
+      "control-bar control-bar"
+      "main main"
+      "aside aside";
+  }
 }
 
 // Main blocks
