@@ -1,3 +1,18 @@
-<% @upcoming_scheduled_events.each do |scheduled_event| %>
-  <%= link_to scheduled_event.name, scheduled_event_path(@event, scheduled_event) %>
-<% end %>
+<div class="width-constraint">
+  <h1><%= @event.name %></h1>
+  <section>
+    <h1>
+      Coming up soon
+    </h1>
+
+    <div class="grid-event-list">
+      <% @upcoming_scheduled_events.each do |scheduled_event| %>
+        <%= link_to scheduled_event_path(@event, scheduled_event), class: "surface event-tile", style: "background-image: url( #{url_for(@event.banner) if @event.banner.attached?} )" do %>
+          <%= content_tag "div" do %>
+            <%= scheduled_event.name %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </section>
+</div>

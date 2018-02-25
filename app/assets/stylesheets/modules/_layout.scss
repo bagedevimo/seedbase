@@ -32,6 +32,12 @@
   }
 }
 
+.grid-event-list {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
 // Main blocks
 $logo-size: 2.5em;
 
@@ -61,6 +67,7 @@ footer {
   max-width: 1000px;
   margin: 0 auto;
   margin-bottom: 30px;
+  padding: 1.5em 0 0;
 
   > .main {
     grid-area: main;

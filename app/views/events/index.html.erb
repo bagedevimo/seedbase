@@ -1,12 +1,17 @@
-<div class="surface">
-  <div class="container">
-    <h1>Events</h1>
-
-    <ul>
+<div class="width-constraint">
+  <section>
+    <h1>
+      Upcoming events
+    </h1>
+    
+    <div class="grid-event-list">
       <% @events.each do |event| %>
-        <li><%= link_to event.name, event %></li>
+        <%= link_to event, class: "surface event-tile", style: "background-image: url( #{url_for(event.banner) if event.banner.attached?} )" do %>
+          <%= content_tag "div" do %>
+            <%= event.name %>
+          <% end %>
+        <% end %>
       <% end %>
-    </ul>
-  </div>
+    </div>
+  </section>
 </div>
-
