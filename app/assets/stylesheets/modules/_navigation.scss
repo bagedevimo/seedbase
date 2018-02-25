@@ -1,7 +1,6 @@
 $nav-item-size: 1.625em;
 
 nav {
-  vertical-align: top;
   width: 100%;
   display: flex;
   align-items: center;
@@ -17,11 +16,6 @@ nav {
     &:hover {
       color: #000;
     }
-  }
-
-  span {
-    display: flex;
-    align-items: center;
   }
 
   > :nth-child(2) {
