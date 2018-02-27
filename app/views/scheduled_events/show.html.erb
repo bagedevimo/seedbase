@@ -33,32 +33,30 @@
     </div>
   </div>
 
-  <div class="surface main">
-    <div class="content">
-      <h1><%= @event.name %></h1>
-      <div class="subheading">
-        <%= @scheduled_event.location_text %>
-      </div>
+  <div class="surface main content">
+    <h1><%= @event.name %></h1>
+    <div class="subheading">
+      <%= @scheduled_event.location_text %>
+    </div>
+
+    <p></p>
+
+    <section>
+      <h1>Teams</h1>
 
       <p></p>
 
-      <section>
-        <h1>Teams</h1>
+      <% if current_competitor&.team %>
+      <p>You're competiting in team <%= current_competitor.team.name %></p>
+      <% else %>
+      <p>Create a team</p>
 
-        <p></p>
-
-        <% if current_competitor&.team %>
-        <p>You're competiting in team <%= current_competitor.team.name %></p>
-        <% else %>
-        <p>Create a team</p>
-
-        <%= form_with model: @scheduled_event.teams.new, url: new_team_path, local: true do |f| %>
-        <%= f.text_field :name, placeholder: "Team name" %>
-        <%= f.button "Create team" %>
-        <% end %>
-        <% end %>
-      </section>
-    </div>
+      <%= form_with model: @scheduled_event.teams.new, url: new_team_path, local: true do |f| %>
+      <%= f.text_field :name, placeholder: "Team name" %>
+      <%= f.button "Create team" %>
+      <% end %>
+      <% end %>
+    </section>
   </div>
 
   <aside class="surface">
