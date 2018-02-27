@@ -12,6 +12,7 @@ nav {
     font-size: $nav-item-size;
     padding: 1.25em .5em;
     margin-left: 1em;
+    display: block;
 
     &:hover {
       color: #000;

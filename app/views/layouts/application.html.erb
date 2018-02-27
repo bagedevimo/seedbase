@@ -17,14 +17,19 @@
             <%= link_to "Events", events_path %>
           </span>
 
-          <span>
-            <% if current_user %>
-            <%= link_to "Organise an event", new_event_path %>
-            <% else %>
-            <%= link_to "Log in", new_session_path %>
-            <%= link_to "Register", new_user_path %>
-            <% end %>
-          </span>
+          <% if current_user %>
+            <span>
+              <%= link_to "Organise an event", new_event_path %>
+            </span>
+          <% else %>
+            <span>
+              <%= link_to "Log in", new_session_path %>
+            </span>
+
+            <span>
+              <%= link_to "Register", new_user_path %>
+            </span>
+          <% end %>
 
           <% if current_user %>
           <%= link_to edit_user_path(current_user) do %>
