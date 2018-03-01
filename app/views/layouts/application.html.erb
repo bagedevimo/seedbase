@@ -32,9 +32,9 @@
           <% end %>
 
           <% if current_user %>
-          <%= link_to edit_user_path(current_user) do %>
-          <%= content_tag "div", "", class: "profile", style: "background-image: url('#{profile_picture_url}?s=120');" %>
-          <% end %>
+            <%= link_to edit_user_path(current_user) do %>
+              <%= content_tag "div", "", class: "profile", style: "background-image: url('#{profile_picture_url}?s=120');" %>
+            <% end %>
           <% end %>
         </nav>
       </header>

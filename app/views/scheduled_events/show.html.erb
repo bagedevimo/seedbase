@@ -3,7 +3,7 @@
 <% else %>
   <div class="banner"></div>
 <% end %>
-<div class="width-constraint grid-event">
+<div class="container grid-event">
   <% if current_user_organiser_for?(@event) %>
   <div class="management">
     <span>You're an organiser for <%= @event.name %>.</span>
