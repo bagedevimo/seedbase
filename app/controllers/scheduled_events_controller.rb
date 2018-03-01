@@ -1,6 +1,7 @@
 class ScheduledEventsController < ApplicationController
   before_action :find_scheduled_event, only: [:show, :edit, :update]
-  before_action :authenticate_organiser!
+  skip_before_action :authenticate_user!, only: [:show]
+  before_action :authenticate_organiser!, except: [:show]
 
   def show; end
 
