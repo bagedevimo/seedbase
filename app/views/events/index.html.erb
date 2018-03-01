@@ -1,4 +1,7 @@
 <div class="container-full">
+  <div class="actions">
+    <%= link_to "Organise an event", new_event_path, class: "button" if current_user %>
+  </div>
   <section>
     <h1>
       Upcoming events

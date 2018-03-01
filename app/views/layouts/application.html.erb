@@ -18,9 +18,9 @@
           </span>
 
           <% if current_user %>
-            <span>
-              <%= link_to "Organise an event", new_event_path %>
-            </span>
+            <%= link_to edit_user_path(current_user) do %>
+              <%= content_tag "div", "", class: "profile", style: "background-image: url('#{profile_picture_url}?s=120');" %>
+              <% end %>
           <% else %>
             <span>
               <%= link_to "Register", new_user_path %>
@@ -31,11 +31,6 @@
             </span>
           <% end %>
 
-          <% if current_user %>
-            <%= link_to edit_user_path(current_user) do %>
-              <%= content_tag "div", "", class: "profile", style: "background-image: url('#{profile_picture_url}?s=120');" %>
-            <% end %>
-          <% end %>
         </nav>
       </header>
       <%= yield %>

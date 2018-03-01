@@ -13,6 +13,7 @@ nav {
     padding: 1.25em .5em;
     margin-left: 1em;
     display: block;
+    transition: all 0.2s ease-in-out;
 
     &:hover {
       color: #000;
@@ -21,6 +22,11 @@ nav {
 
   > :nth-child(2) {
     margin-left: auto;
-    margin-right: 1em;
+  }
+
+  @media(max-width: 650px) {
+    a {
+      font-size: $nav-item-size*0.85;
+    }
   }
 }
