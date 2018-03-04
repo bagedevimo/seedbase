@@ -18,6 +18,6 @@ class EventsTest < ApplicationSystemTestCase
   test "doesn't create an event when not logged in" do
     visit new_event_url
 
-    assert_selector "h1", text: "Log in"
+    assert_selector "h1", text: "Sign in"
   end
 end

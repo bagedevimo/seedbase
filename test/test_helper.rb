@@ -12,6 +12,6 @@ class ActiveSupport::TestCase
     fill_in "email", with: "bob@example.com"
     fill_in "password", with: "abcdef123456"
 
-    click_button "Log in"
+    click_button "Sign in"
   end
 end
