@@ -6,11 +6,11 @@ nav {
   align-items: center;
   box-sizing: border-box;
 
-  a {
+  a:not(:last-of-type) {
     text-decoration: none;
     color: $dark-grey;
     font-size: $nav-item-size;
-    padding: 1.25em .5em;
+    padding: .2em;
     margin-left: 1em;
     display: block;
     transition: all 0.2s ease-in-out;

@@ -37,11 +37,15 @@
 $logo-size: 2.5em;
 
 header {
+  $header-padding: $device-padding*0.75;
+  $profile-size: 60px;
+
   grid-area: header;
   background: #fff;
   display: flex;
   align-items: baseline;
-  padding: 0 $device-padding;
+  padding: $header-padding $device-padding;
+  min-height: calc(#{$header-padding}*2 + #{$profile-size});
   box-sizing: border-box;
   transition: padding 0.2s ease-in;
 
@@ -51,6 +55,13 @@ header {
     color: #000;
     text-decoration: none;
     transition: all 0.2s ease-in-out;
+  }
+
+  .profile {
+    width: $profile-size;
+    height: $profile-size;
+    border-radius: 50%;
+    background-size: cover;
   }
 
   @media(max-width: 1000px) {

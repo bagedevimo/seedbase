@@ -3,7 +3,6 @@
   <head>
     <title>Seedbase</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
@@ -13,24 +12,17 @@
       <header>
         <a href="/">Seedbase</a>
         <nav>
-          <span>
-            <%= link_to "Events", events_path %>
-          </span>
+          <%= link_to "Events", events_path %>
 
           <% if current_user %>
             <%= link_to edit_user_path(current_user) do %>
               <%= content_tag "div", "", class: "profile", style: "background-image: url('#{profile_picture_url}?s=120');" %>
-              <% end %>
+            <% end %>
           <% else %>
-            <span>
-              <%= link_to "Register", new_user_path %>
-            </span>
+            <%= link_to "Register", new_user_path %>
 
-            <span>
-              <%= link_to "Sign in", new_session_path %>
-            </span>
+            <%= link_to "Sign in", new_session_path %>
           <% end %>
-
         </nav>
       </header>
       <%= yield %>
