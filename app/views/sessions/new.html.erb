@@ -5,7 +5,7 @@
     <%= form_with url: sessions_path, method: :post, local: true do |f| %>
       <div class="alert">Alert: <%= flash[:alert] %></div>
 
-      <%= f.text_field :email, placeholder: "Email" %>
+      <%= f.text_field :email, placeholder: "Email", autofocus: "true" %>
       <%= f.password_field :password, placeholder: "Password" %>
 
       <%= f.button "Sign in" %>

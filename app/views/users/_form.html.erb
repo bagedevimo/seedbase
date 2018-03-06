@@ -3,12 +3,12 @@
 <% end %>
 
 <%= form_with model: @user, local: true do |f| %>
+  <%= f.text_field :name, placeholder: "Name" %>
   <%= f.text_field :email, placeholder: "Email" %>
 
   <%= f.password_field :password, placeholder: "Password" %>
   <%= f.password_field :password_confirmation, placeholder: "Confirm password" %>
 
-  <%= f.text_field :name, placeholder: "Name" %>
 
   <% if @user.persisted? %>
     <%= f.button "Save" %>
