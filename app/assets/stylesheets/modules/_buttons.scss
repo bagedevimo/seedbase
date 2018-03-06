@@ -11,6 +11,18 @@ button,
   font-size: 1em;
   display: inline-block;
   cursor: pointer;
+  transition: all 0.1s ease-in;
+  justify-self: start;
+
+  &:hover{
+    $tint: tint($action, 25%);
+    background-color: saturate($tint, 100%);
+  }
+
+  &:focus {
+    $tint: shade($action, 25%);
+    background-color: saturate($tint, 100%);
+  }
 
   &.affirmative {
     background: $action-affirmative;

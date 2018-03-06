@@ -1,0 +1,52 @@
+$outline: rgba(200, 200, 200, 0.5);
+
+input,
+button,
+textarea {
+  font-family: 'Quicksand', sans-serif;
+}
+
+form {
+  display: grid;
+}
+
+input {
+  font-size: 1em;
+  transition: all 0.1s ease-in;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  padding: 1em;
+  border: 1px solid $lightest-grey;
+  border-radius: 3px;
+  margin-bottom: 1em;
+  color: $darkest-grey;
+  outline: none;
+
+  &::placeholder {
+    color: $light-grey;
+  }
+
+  &:disabled {
+    color: $light-grey;
+    border-color: rgba(0, 0, 0, 0.03);
+    background-color: rgba(0, 0, 0, 0.03);
+    cursor: not-allowed;
+  }
+
+  &:hover:not(:disabled) {
+    box-shadow: 0 0 0 3px tint($outline, 30%);
+  }
+
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
+    border-color: $light-grey;
+  }
+
+  &:focus:not(:disabled) {
+    box-shadow: 0 0 0 3px $outline;
+    transform: scale(1.01, 1.01);
+  }
+}
