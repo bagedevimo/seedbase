@@ -65,10 +65,9 @@ header {
   }
 
   @media(max-width: 1000px) {
-    padding: 0 $device-padding/2;
-  }
+    padding: $header-padding/2 $device-padding/2;
+    min-height: calc(#{$header-padding/2}*2 + #{$profile-size});
 
-  @media(max-width: 650px) {
     > a {
       font-size: $logo-size*0.75;
     }
