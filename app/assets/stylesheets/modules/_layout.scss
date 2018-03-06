@@ -6,6 +6,15 @@
     "body"
     "footer"
     / 1fr;
+
+  @media (max-width: 650px) {
+    grid:
+      "header"
+      "banner"
+      "body"
+      "footer"
+      / 1fr;
+  }
 }
 
 .grid-event {
@@ -19,6 +28,7 @@
     "main aside";
 
   @media(max-width: 650px) {
+    grid-gap: 12px;
     grid-template-areas:
       "management management"
       "control-bar control-bar"
@@ -89,6 +99,10 @@ footer {
 
   @media(max-width: 1000px) {
     padding: $device-padding/2 $device-padding/2 0;
+  }
+
+  @media(max-width: 650px) {
+    padding: 12px 12px 0;
   }
 }
 

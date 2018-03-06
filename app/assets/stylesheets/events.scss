@@ -23,6 +23,12 @@
   @media (max-width: 1000px) {
     padding-top: 55%;
   }
+
+  @media (max-width: 650px) {
+    padding-top: 40%;
+    grid-area: banner;
+    grid-column: auto;
+  }
 }
 
 .event-control-bar {
@@ -39,6 +45,10 @@
   align-items: center;
   overflow: hidden;
   position: relative;
+
+  @media (max-width: 650px) {
+    margin-top: 0;
+  }
 
   > .event-avatar {
     position: absolute;
