@@ -50,19 +50,4 @@ h1 {
   }
 }
 
-form {
-  input,
-  button {
-    font-family: 'Quicksand', sans-serif;
-  }
-
-  textarea,
-  input[type="text"] {
-    width: 100%;
-    padding: 8px;
-    font-size: 0.8rem;
-    box-sizing: border-box;
-  }
-}
-
 @import "*";

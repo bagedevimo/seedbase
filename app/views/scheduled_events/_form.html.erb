@@ -1,42 +1,28 @@
 <%= form_with model: @scheduled_event, url: scheduled_event_path(@event, @scheduled_event), local: true do |f| %>
-  <p>
-    <%= f.label :name %>
-    <%= f.text_field :name, disabled: @scheduled_event.persisted? %>
-  </p>
-  
-  <p>
-    <%= f.label :starts_at %>
-    <%= f.datetime_field :starts_at, required: true %>
-  </p>
+  <%= f.label :name %>
+  <%= f.text_field :name, disabled: @scheduled_event.persisted? %>
 
-  <p>
-    <%= f.label :ends_at %>
-    <%= f.datetime_field :ends_at, required: true %>
-  </p>
+  <%= f.label :starts_at %>
+  <%= f.datetime_field :starts_at, required: true %>
 
-  <p>
-    <%= f.label :location_text, "Description of location" %>
-    <%= f.text_area :location_text, required: true %>
-  </p>
+  <%= f.label :ends_at %>
+  <%= f.datetime_field :ends_at, required: true %>
 
-  <p>
-    <%= f.label "Location (Coordinates)" %>
-    <%= f.text_field :lat, placeholder: "Latitude" %>
-    <%= f.text_field :long, placeholder: "Longitide" %>
-  </p>
+  <%= f.label :location_text, "Description of location" %>
+  <%= f.text_area :location_text, required: true %>
 
-  <p>
-    <%= f.label "Maximum team size?" %>
-    <%= f.text_field :maximum_team_size %>
-  </p>
+  <%= f.label "Location (Coordinates)" %>
+  <%= f.text_field :lat, placeholder: "Latitude" %>
+  <%= f.text_field :long, placeholder: "Longitide" %>
 
-  <p>
-    <%= f.label :signups_open_at %>
-    <%= f.datetime_field :signups_open_at, required: true %>
-    <br />
-    <%= f.label :signups_close_at %>
-    <%= f.datetime_field :signups_close_at, required: true %>
-  </p>
+  <%= f.label "Maximum team size?" %>
+  <%= f.text_field :maximum_team_size %>
+
+  <%= f.label :signups_open_at %>
+  <%= f.datetime_field :signups_open_at, required: true %>
+
+  <%= f.label :signups_close_at %>
+  <%= f.datetime_field :signups_close_at, required: true %>
 
   <% if @scheduled_event.persisted? %>
     <%= f.button "Save" %>

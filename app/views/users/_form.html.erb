@@ -3,26 +3,18 @@
 <% end %>
 
 <%= form_with model: @user, local: true do |f| %>
-  <p>
-    <%= f.text_field :email, placeholder: "Email" %>
-  </p>
+  <%= f.text_field :email, placeholder: "Email" %>
 
-  <p>
-    <%= f.password_field :password, placeholder: "Password" %>
-  <br />
-    <%= f.password_field :password_confirmation, placeholder: "Confirm password" %>
-  </p>
+  <%= f.password_field :password, placeholder: "Password" %>
+  <%= f.password_field :password_confirmation, placeholder: "Confirm password" %>
 
-  <p>
-    <%= f.text_field :name, placeholder: "Name" %>
-  </p>
+  <%= f.text_field :name, placeholder: "Name" %>
 
-  <p>
-    <% if @user.persisted? %>
-      <%= f.button "Save" %>
-    <% else %>
-      <%= f.button "Create account" %>
-    <% end %>
-  </p>
+  <% if @user.persisted? %>
+    <%= f.button "Save" %>
+  <% else %>
+    <%= f.button "Create account" %>
+  <% end %>
+
   <%= link_to "Log out", destroy_sessions_path if current_user %>
 <% end %>
