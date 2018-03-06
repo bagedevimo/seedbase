@@ -78,6 +78,12 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+qa:
+  <<: *default
+  database: seedbase_qa
+  username: seedbase_qa
+  password: <%= ENV['SEEDBASE_QA_DATABASE_PASSWORD'] %>
+
 production:
   <<: *default
   database: seedbase_production
