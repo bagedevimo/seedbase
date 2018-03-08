@@ -10,7 +10,7 @@
     <div class="grid-event-list">
       <% @events.each do |event| %>
         <%= link_to event, class: "surface event-tile", style: "background-image: url( #{url_for(event.banner) if event.banner.attached?} )" do %>
-          <%= content_tag "div" do %>
+          <%= content_tag "span" do %>
             <%= event.name %>
           <% end %>
         <% end %>

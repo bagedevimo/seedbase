@@ -8,7 +8,7 @@
     <div class="grid-event-list">
       <% @upcoming_scheduled_events.each do |scheduled_event| %>
         <%= link_to scheduled_event_path(@event, scheduled_event), class: "surface event-tile", style: "background-image: url( #{url_for(@event.banner) if @event.banner.attached?} )" do %>
-          <%= content_tag "div" do %>
+          <%= content_tag "span" do %>
             <%= scheduled_event.name %>
           <% end %>
         <% end %>
