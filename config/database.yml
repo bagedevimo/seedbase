@@ -82,10 +82,10 @@ qa:
   <<: *default
   database: seedbase_qa
   username: seedbase_qa
-  password: <%= ENV['SEEDBASE_QA_DATABASE_PASSWORD'] %>
+  password: <%= Rails.application.credentials.qa_db_password %>
 
 production:
   <<: *default
   database: seedbase_production
   username: seedbase
-  password: <%= ENV['SEEDBASE_DATABASE_PASSWORD'] %>
+  password: <%= Rails.application.credentials.prod_db_password %>
