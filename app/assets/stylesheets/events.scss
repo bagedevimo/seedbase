@@ -3,31 +3,35 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .banner {
-  padding-top: 27.7%;
   background-color: rgba(20, 30, 10, 0.25);
   background-size: cover;
   background-position: bottom right;
-  transition: padding .2s ease-in-out;
-  grid-area: 2 / auto;
-  grid-column : 1 / last-line;
+  grid-area: 2 / 1 / 2 / 2;
   align-self: start;
 
-  @media (max-width: 1400px) {
-    padding-top: 35%;
-  }
+  &::after {
+    content: "";
+    float: left;
+    padding-top: 27.7%;
+    transition: padding .2s ease-in-out;
 
-  @media (max-width: 1200px) {
-    padding-top: 45%;
-  }
+    @media (max-width: 1400px) {
+      padding-top: 35%;
+    }
 
-  @media (max-width: 1000px) {
-    padding-top: 55%;
-  }
+    @media (max-width: 1200px) {
+      padding-top: 45%;
+    }
 
-  @media (max-width: 650px) {
-    padding-top: 40%;
-    grid-area: banner;
-    grid-column: auto;
+    @media (max-width: 1000px) {
+      padding-top: 55%;
+    }
+
+    @media (max-width: 650px) {
+      padding-top: 40%;
+      grid-area: banner;
+      grid-column: auto;
+    }
   }
 }
 
