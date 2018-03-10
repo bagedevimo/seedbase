@@ -129,14 +129,15 @@ section {
   color: $dark-grey;
   text-decoration: none;
   background-size: cover;
-  background-position: bottom 2em right;
+  background-position: bottom calc(2em + 1ch) right;
+  background-repeat: no-repeat;
   overflow: hidden;
   align-items: stretch;
   position: relative;
 
   &::before {
     content: "";
-    padding-bottom: 50%;
+    padding-bottom: 60%;
     float: left;
   }
 
