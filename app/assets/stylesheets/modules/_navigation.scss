@@ -6,7 +6,12 @@ nav {
   align-items: center;
   box-sizing: border-box;
 
-  > a:not(.profile) {
+  > span {
+    display: flex;
+  }
+
+  > a:not(.profile),
+  > span a {
     text-decoration: none;
     color: $dark-grey;
     font-size: $nav-item-size;
