@@ -6,7 +6,7 @@ nav {
   align-items: center;
   box-sizing: border-box;
 
-  a:not(.profile) {
+  > a:not(.profile) {
     text-decoration: none;
     color: $dark-grey;
     font-size: $nav-item-size;
@@ -18,15 +18,14 @@ nav {
     &:hover {
       color: #000;
     }
-
   }
 
-  a:nth-of-type(2) {
+  > :last-child {
     margin-left: auto;
   }
 
   @media(max-width: 650px) {
-    a {
+    > a {
       font-size: $nav-item-size*0.85;
     }
   }

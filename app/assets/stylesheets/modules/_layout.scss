@@ -73,6 +73,72 @@ header {
     border-radius: 50%;
     background-size: cover;
   }
+  
+  .flyout {
+    position: relative;
+    perspective: 1500px;
+    cursor: pointer;
+  }
+
+  .flyout > .flyout-body {
+    $pointer-size: 8px;
+    $padding: $pointer-size;
+
+    padding: $padding;
+    border-radius: 4px;
+    background-color: $action;
+    box-shadow: 0 1px 6px 0px rgba(0, 0, 0, 0.6);
+    position: absolute;
+    color: #fff;
+    font-weight: $medium;
+    top: calc(100% + #{$pointer-size}*2);
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.15s ease-in;
+    transform: scale(0.9, 0.9) rotateX(-40deg);
+    opacity: 0;
+    visibility: hidden;
+    transform-origin: calc(100% - #{$profile-size}/2) top;
+
+    &::before {
+      content: "";
+      width: 0;
+      height: 0;
+      border-top: $pointer-size solid transparent;
+      border-bottom: $pointer-size solid $action;
+      border-left: $pointer-size solid transparent;
+      border-right: $pointer-size solid transparent;
+      position: absolute;
+      bottom: 100%;
+      right: calc(#{$profile-size}/2 - #{$pointer-size});
+    }
+
+    &.active {
+      visibility: visible;
+      opacity: 1;
+      transform: scale(1, 1) rotateX(0deg);
+    }
+
+    > a {
+      text-decoration: none;
+      white-space: nowrap;
+      color: inherit;
+      text-align: center;
+      padding: $padding $padding*3;
+      transition: all 0.1s ease-in;
+      border-radius: inherit;
+
+      &:not(:last-of-type){
+        margin-bottom: $padding;
+      }
+
+      &:hover {
+        $tint: tint($action, 25%);
+        background-color: saturate($tint, 100%);
+      }
+    }
+  }
 
   @media(max-width: 1000px) {
     padding: $header-padding/2 $device-padding/2;

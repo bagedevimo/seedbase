@@ -13,3 +13,16 @@
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
+
+if (document.querySelector('.flyout')) {
+  var flyout = document.querySelector('.flyout');
+  flyout.body = flyout.querySelector('.flyout-body');
+
+  document.addEventListener('click', function(e) {
+    if (e.target == flyout) {
+      flyout.body.classList.toggle('active');
+    } else if (flyout.body.classList.contains('active')) {
+      flyout.body.classList.remove('active');
+    }
+  });
+}

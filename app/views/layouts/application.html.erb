@@ -4,7 +4,6 @@
     <title>Seedbase</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
@@ -15,7 +14,13 @@
           <%= link_to "Events", events_path %>
 
           <% if current_user %>
-            <%= link_to "", edit_user_path(current_user), class: "profile", style: "background-image: url('#{profile_picture_url}?s=120')" %>
+            <%= content_tag "div", class: "profile flyout", style: "background-image: url('#{profile_picture_url}?s=120')" do %>
+              <div class="flyout-body">
+                <a href="#">Your events</a>
+                <!-- <%= link_to "Your events", "the manage all your events patth" %> -->
+                <%= link_to "Settings", edit_user_path(current_user) %>
+              </div>
+            <% end %>
           <% else %>
             <%= link_to "Register", new_user_path %>
 
@@ -26,5 +31,7 @@
       <%= yield %>
       <footer></footer>
     </div>
+
+    <%= javascript_include_tag 'application' %>
   </body>
 </html>
