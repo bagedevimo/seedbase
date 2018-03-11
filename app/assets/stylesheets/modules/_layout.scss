@@ -84,6 +84,7 @@ header {
     box-shadow: 0 1px 6px 0px rgba(0, 0, 0, 0.6);
     position: absolute;
     color: #fff;
+    cursor: default;
     font-weight: $medium;
     top: calc(100% + #{$pointer-size}*2);
     right: 0;
