@@ -90,8 +90,8 @@ header {
     right: 0;
     display: flex;
     flex-direction: column;
-    transition: all 0.15s ease-in;
-    transform: scale(0.9, 0.9) rotateX(-40deg);
+    transition: all 0.25s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transform: scale(0.9, 0.9) rotateX(-45deg);
     opacity: 0;
     visibility: hidden;
     transform-origin: calc(100% - #{$profile-size}/2) top;
