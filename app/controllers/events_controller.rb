@@ -17,11 +17,12 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    @event.slug = @event.name.parameterize
 
     ActiveRecord::Base.transaction do
       @event.save!
       @event.organisers.create! user: current_user
-      redirect_to @event
+      redirect_to @event and return
     end
 
     render :new
