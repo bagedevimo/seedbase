@@ -13,5 +13,3 @@
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
-
-if (document.body.classList.contains("no-animate")) document.body.classList.remove("no-animate");
