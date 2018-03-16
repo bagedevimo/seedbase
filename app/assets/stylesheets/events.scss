@@ -38,12 +38,10 @@
 .event-control-bar {
   $padding: 0.625em;
   $button-size: 1.4em;
-  $button-padding: 0.65em;
+  $button-padding: 0.75em;
 
   grid-area: control-bar;
   margin-top: 150px;
-  line-height: 1.6em;
-  font-weight: $medium;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -66,9 +64,8 @@
     width: 100%;
     display: flex;
     align-items: center;
-    font-size: 1.1em;
     color: $dark-grey;
-    margin-left: $button-size + $button-padding*2 + $padding*3.6;
+    margin-left: $button-size + $button-padding*2 + $padding*4;
 
     > :nth-child(2) {
       margin-left: auto;
@@ -78,6 +75,25 @@
     .button {
       padding: $button-padding $button-padding*1.4;
       font-size: $button-size;
+    }
+  }
+}
+
+// To be removed later
+.event-schedule {
+  line-height: 1.6em;
+  font-weight: $medium;
+  font-size: 1.1em;
+
+  .main & {
+    display: none;
+  }
+
+  @media (max-width: 850px) {
+    display: none;
+
+    .main & {
+      display: block;
     }
   }
 }

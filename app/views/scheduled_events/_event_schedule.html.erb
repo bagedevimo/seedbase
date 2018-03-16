@@ -1,0 +1,4 @@
+<div class="event-schedule">
+  <div>Starts at <%= @scheduled_event.starts_at.strftime("%l:%M%P %A #{@scheduled_event.starts_at.day.ordinalize} %B %Y") %></div>
+  <div>Runs for <%= distance_of_time_in_words(@scheduled_event.duration) %></div>
+</div>

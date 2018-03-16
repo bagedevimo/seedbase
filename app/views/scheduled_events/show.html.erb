@@ -15,10 +15,7 @@
   <div class="surface event-control-bar">
     <%= image_tag "placeholder-event", class: "event-avatar" %>
     <div class="control-bar-details">
-      <div>
-        Starts at <%= @scheduled_event.starts_at.strftime("%l:%M%P %A #{@scheduled_event.starts_at.day.ordinalize} %B %Y") %><br />
-        Runs for <%= distance_of_time_in_words(@scheduled_event.duration) %>
-      </div>
+      <%= render partial: "event_schedule" %>
 
       <% if current_competitor %>
         <%= form_with url: competitor_path(current_competitor), local: true, method: :delete do |f| %>
@@ -35,6 +32,9 @@
 
   <div class="surface main content">
     <h1><%= @event.name %></h1>
+
+    <%= render partial: "event_schedule" %>
+
     <div class="subheading">
       <%= @scheduled_event.location_text %>
     </div>
