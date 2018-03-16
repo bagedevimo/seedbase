@@ -10,7 +10,7 @@ nav {
     display: flex;
   }
 
-  > a:not(.profile),
+  > a,
   > span a {
     text-decoration: none;
     color: $dark-grey;
@@ -23,15 +23,21 @@ nav {
     &:hover {
       color: #000;
     }
+
+    @media(max-width: 1000px) {
+      font-size: $nav-item-size*0.85;
+    }
+
+    @media(max-width: 850px) {
+      font-size: $nav-item-size*0.85;
+    }
+
+    @media(max-width: 650px) {
+      font-size: $nav-item-size*0.65;
+    }
   }
 
   > :last-child {
     margin-left: auto;
-  }
-
-  @media(max-width: 650px) {
-    > a {
-      font-size: $nav-item-size*0.85;
-    }
   }
 }

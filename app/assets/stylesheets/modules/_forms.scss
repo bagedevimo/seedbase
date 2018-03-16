@@ -15,6 +15,10 @@ input {
   transition: all 0.1s ease-in;
 }
 
+input[type="file"] {
+  width: 75%;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="password"] {

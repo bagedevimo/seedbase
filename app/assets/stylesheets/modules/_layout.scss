@@ -55,7 +55,6 @@ header {
   display: flex;
   align-items: baseline;
   padding: $header-padding $device-padding;
-  min-height: calc(#{$header-padding}*2 + #{$profile-size});
   box-sizing: border-box;
   transition: padding 0.2s ease-in;
 
@@ -149,10 +148,17 @@ header {
 
   @media(max-width: 1000px) {
     padding: $header-padding/2 $device-padding/2;
-    min-height: calc(#{$header-padding/2}*2 + #{$profile-size});
 
     > a {
       font-size: $logo-size*0.75;
+    }
+  }
+
+  @media(max-width: 650px) {
+    padding: $header-padding/2 $device-padding/2;
+
+    > a {
+      font-size: $logo-size*0.65;
     }
   }
 }
