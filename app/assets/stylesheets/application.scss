@@ -32,6 +32,10 @@ body {
   font-family: 'Quicksand', sans-serif;
 }
 
+.no-animate * {
+  transition: none;
+}
+
 h1 {
   font-weight: $regular;
   margin: 0 0 .15em;
