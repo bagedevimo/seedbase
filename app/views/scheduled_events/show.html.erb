@@ -21,14 +21,14 @@
       </div>
 
       <% if current_competitor %>
-      <%= form_with url: competitor_path(current_competitor), local: true, method: :delete do |f| %>
-      <%= f.button "Attending", class: "button stateful active affirmative", data: { action: "Leave" } %>
-      <% end %>
+        <%= form_with url: competitor_path(current_competitor), local: true, method: :delete do |f| %>
+          <%= f.button "Attending", class: "button stateful active affirmative", data: { action: "Leave" } %>
+        <% end %>
       <% else %>
-      <%= form_with url: competitors_path, local: true do |f| %>
-      <%= f.hidden_field :scheduled_event, value: @scheduled_event.id %>
-      <%= f.button "Attend" %>
-      <% end %>
+        <%= form_with url: competitors_path, local: true do |f| %>
+          <%= f.hidden_field :scheduled_event, value: @scheduled_event.id %>
+          <%= f.button "Attend" %>
+        <% end %>
       <% end %>
     </div>
   </div>
