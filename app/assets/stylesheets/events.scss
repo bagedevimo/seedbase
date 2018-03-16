@@ -36,11 +36,11 @@
 }
 
 .event-control-bar {
-  grid-area: control-bar;
   $padding: 0.625em;
   $button-size: 1.4em;
-  $button-padding: 1em;
+  $button-padding: 0.65em;
 
+  grid-area: control-bar;
   margin-top: 150px;
   line-height: 1.6em;
   font-weight: $medium;
@@ -68,7 +68,7 @@
     align-items: center;
     font-size: 1.1em;
     color: $dark-grey;
-    margin-left: $button-size + $button-padding*2 + $padding*5;
+    margin-left: $button-size + $button-padding*2 + $padding*3.6;
 
     > :nth-child(2) {
       margin-left: auto;
