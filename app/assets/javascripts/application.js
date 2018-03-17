@@ -13,3 +13,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
+
+window.addEventListener("load", function(event) {
+    if (document.querySelector(".no-animate")) document.body.classList.remove("no-animate");
+});
