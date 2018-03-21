@@ -1,4 +1,12 @@
-<%= form_with model: @scheduled_event, url: scheduled_event_path(@event, @scheduled_event), local: true do |f| %>
+<% if @scheduled_event.persisted? %>
+  <% @url = scheduled_event_path(@event, @scheduled_event) %>
+<% else %>
+  <% @url = scheduled_events_path %>
+<% end %>
+
+<%= form_with model: @scheduled_event, url: @url, local: true do |f| %>
+  <%= f.hidden_field :event_id, value: @event.id %>
+
   <%= f.label :name %>
   <%= f.text_field :name, disabled: @scheduled_event.persisted? %>
 

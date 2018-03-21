@@ -1,21 +1,21 @@
 class ScheduledEventsController < ApplicationController
-  before_action :find_scheduled_event, only: [:show, :edit, :update]
+  before_action :find_scheduled_event, only: [:show, :edit, :update, :new]
   skip_before_action :authenticate_user!, only: [:show]
-  before_action :authenticate_organiser!, except: [:show]
+  before_action :authenticate_organiser!, except: [:show, :create]
 
   def show; end
 
   def new
-    @save_path = event_schedule_index_path
     @scheduled_event = @event.scheduled_events.new
   end
 
   def create
-    @save_path = event_schedule_index_path
+    @event = Event.find(params[:scheduled_event][:event_id])
     @scheduled_event = @event.scheduled_events.new(scheduled_event_params)
+    @scheduled_event.slug = @scheduled_event.name.parameterize
 
     if @scheduled_event.save
-      redirect_to event_schedule_path(@event, @scheduled_event) and return
+      redirect_to scheduled_event_path(@event, @scheduled_event) and return
     else
       render :new
     end
@@ -37,7 +37,6 @@ class ScheduledEventsController < ApplicationController
   def find_scheduled_event
     @event = Event.find_by_slug(params[:event_id])
     @scheduled_event = @event.scheduled_events.find_by_slug(params[:id])
-    @event = @scheduled_event.event
   end
 
   def scheduled_event_params

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :edit, :update]
 
   resources :events, only: [:index, :new, :create]
+  resources :scheduled_events, only: [:create]
 
   resources :competitors
   resources :teams
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
   patch '/:id', controller: 'events', action: :update
   get '/:id/edit', controller: 'events', action: :edit, as: 'edit_event'
 
+  get '/:event_id/new', controller: 'scheduled_events', action: :new, as: 'new_scheduled_event'
   get '/:event_id/:id', controller: 'scheduled_events', action: :show, as: 'scheduled_event'
   patch '/:event_id/:id', controller: 'scheduled_events', action: :update
   get '/:event_id/:id/edit', controller: 'scheduled_events', action: :edit, as: 'edit_scheduled_event'

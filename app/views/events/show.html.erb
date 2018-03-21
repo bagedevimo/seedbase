@@ -1,4 +1,10 @@
 <div class="container">
+  <% if @event.users.include?(current_user) %>
+    <section>    
+      <%= link_to "Schedule next #{@event.name}", new_scheduled_event_path(@event) %>
+    </section>
+  <% end %> 
+
   <h1><%= @event.name %></h1>
   <section>
     <h1>
