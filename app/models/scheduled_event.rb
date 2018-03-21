@@ -17,6 +17,6 @@ class ScheduledEvent < ApplicationRecord
   end
 
   def to_param
-    name.parameterize
+    slug
   end
 end

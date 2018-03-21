@@ -17,6 +17,6 @@ class Event < ApplicationRecord
   end
 
   def to_param
-    name.parameterize
+    slug
   end
 end
