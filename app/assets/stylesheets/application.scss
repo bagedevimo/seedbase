@@ -31,8 +31,10 @@ body {
   font-family: 'Quicksand', sans-serif;
 }
 
-.no-animate * {
-  transition: none;
+.no-animate *,
+.no-animate *::before,
+.no-animate *::after {
+  transition: none !important;
 }
 
 h1 {
