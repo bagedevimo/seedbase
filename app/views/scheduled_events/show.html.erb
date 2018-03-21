@@ -39,27 +39,29 @@
       <%= @scheduled_event.location_text %>
     </div>
 
-    <section>
-      <h1>Teams</h1>
+    <% if current_user %>
+      <section>
+        <h1>Teams</h1>
 
-      <% if current_competitor&.team %>
-        <p>
-          You're competiting in team <b><%= current_competitor.team.name %></b>
+        <% if current_competitor&.team %>
+          <p>
+            You're competiting in team <b><%= current_competitor.team.name %></b>
 
-          <%= form_with url: team_path(current_competitor.team), method: :delete, local: true do |f| %>
-            <%= f.button "Leave team" %>
+            <%= form_with url: team_path(current_competitor.team), method: :delete, local: true do |f| %>
+              <%= f.button "Leave team" %>
+            <% end %>
+          </p>
+        <% else %>
+          <p>Create a team</p>
+
+          <%= form_with model: @scheduled_event.teams.new, url: teams_path, local: true do |f| %>
+            <%= f.hidden_field :scheduled_event_id, value: @scheduled_event.id %>
+            <%= f.text_field :name, placeholder: "Team name" %>
+            <%= f.button "Create team" %>
           <% end %>
-        </p>
-      <% else %>
-        <p>Create a team</p>
-
-        <%= form_with model: @scheduled_event.teams.new, url: teams_path, local: true do |f| %>
-          <%= f.hidden_field :scheduled_event_id, value: @scheduled_event.id %>
-          <%= f.text_field :name, placeholder: "Team name" %>
-          <%= f.button "Create team" %>
         <% end %>
-      <% end %>
-    </section>
+      </section>
+    <% end %>
   </div>
 
   <aside class="surface">
