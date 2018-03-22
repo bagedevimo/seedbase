@@ -14,11 +14,8 @@
 */
 @import "base/functions";
 @import "base/variables";
+@import "layout/layout";
 @import "modules/**/*";
-
-
-/* Should be colours.scss or summin */
-$off-white: darken(white, 4%);
 
 html, body {
   margin: 0;
