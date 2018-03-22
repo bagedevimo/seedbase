@@ -1,0 +1,89 @@
+$profile-size: 60px;
+
+.profile {
+  width: $profile-size;
+  height: $profile-size;
+  border-radius: 50%;
+  background-size: cover;
+}
+
+.flyout-body {
+  $pointer-size: 8px;
+  $padding: $pointer-size;
+
+  padding: 0 $padding;
+  border-radius: $border-radius;
+  background-color: $action;
+  box-shadow: 0 1px 6px 0px rgba(0, 0, 0, 0.6);
+  position: absolute;
+  color: #fff;
+  cursor: default;
+  font-weight: $medium;
+  top: calc(100% + #{$pointer-size}*2);
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  max-height: 0px;
+  overflow: hidden;
+  transform: scale(0.9, 0.9) rotateX(-45deg);
+  transition:
+    opacity 0.25s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s,
+    transform 0.25s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s,
+    max-height 0s linear 0.25s
+  ;
+  transform-origin: calc(100% - #{$profile-size}/2) top;
+
+  // This can be reinstated when Firefox supports visibility transition properly
+  // &::before {
+  //   content: "";
+  //   width: 0;
+  //   height: 0;
+  //   border-top: $pointer-size solid transparent;
+  //   border-bottom: $pointer-size solid $action;
+  //   border-left: $pointer-size solid transparent;
+  //   border-right: $pointer-size solid transparent;
+  //   position: absolute;
+  //   bottom: 100%;
+  //   right: calc(#{$profile-size}/2 - #{$pointer-size});
+  // }
+
+  > a {
+    text-decoration: none;
+    white-space: nowrap;
+    color: inherit;
+    text-align: center;
+    padding: $padding $padding*3;
+    transition: all 0.1s ease-in;
+    border-radius: inherit;
+    margin-bottom: $padding;
+
+    &:first-of-type{
+      margin-top: $padding;
+    }
+
+    &:hover {
+      $tint: tint($action, 25%);
+      background-color: saturate($tint, 100%);
+    }
+  }
+}
+
+.flyout {
+  position: relative;
+  perspective: 1500px;
+  cursor: pointer;
+  transition: all 0.1s ease-in;
+
+  &:hover,
+  &.active {
+    box-shadow: 0 0 0 3px tint($action, 50%);
+  }
+}
+
+.flyout.active > .flyout-body {
+  opacity: 1;
+  transform: scale(1, 1) rotateX(0deg);
+  max-height: 200%;
+  transition-delay: 0s;
+}

@@ -1,0 +1,36 @@
+header {
+  $logo-size: 2.5em;
+  $header-padding: $device-padding*0.75;
+
+  grid-area: header;
+  background: #fff;
+  display: flex;
+  align-items: baseline;
+  padding: $header-padding $device-padding;
+  box-sizing: border-box;
+  transition: padding 0.2s ease-in;
+
+  > a {
+    font-size: $logo-size;
+    font-weight: $bold;
+    color: #000;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+  }
+
+  @media(max-width: 1000px) {
+    padding: $header-padding/2 $device-padding/2;
+
+    > a {
+      font-size: $logo-size*0.75;
+    }
+  }
+
+  @media(max-width: 650px) {
+    padding: $header-padding/2 $device-padding/2;
+
+    > a {
+      font-size: $logo-size*0.65;
+    }
+  }
+}
