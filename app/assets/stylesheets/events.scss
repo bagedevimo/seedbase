@@ -111,6 +111,9 @@
 
   > :nth-child(2) {
     margin-left: auto;
+  }
+
+  > :not(:last-child) {
     margin-right: 1em;
   }
 }

@@ -1,6 +1,7 @@
 <div class="container">
   <% if @event.users.include?(current_user) %>
     <div class="actions">
+      <%= link_to "Manage", edit_event_path(@event), class: "button" %>
       <%= link_to "Schedule an event", new_scheduled_event_path(@event), class: "button" %>
     </div>
   <% end %>

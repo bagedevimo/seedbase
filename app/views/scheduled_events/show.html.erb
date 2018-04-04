@@ -8,7 +8,6 @@
   <div class="management">
     <span>You're an organiser for <%= @event.name %>.</span>
     <%= link_to "Manage", edit_scheduled_event_path(@event, @scheduled_event), class: "button" %>
-    <%= link_to "Your events", edit_event_path(@event), class: "button" %>
   </div>
   <% end %>
 
