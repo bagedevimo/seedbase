@@ -5,7 +5,7 @@
 .banner {
   background-color: rgba(20, 30, 10, 0.25);
   background-size: cover;
-  background-position: bottom right;
+  background-position: bottom center;
   grid-area: 2 / 1 / 2 / 2;
   align-self: start;
 
@@ -148,7 +148,7 @@ section {
   color: $dark-grey;
   text-decoration: none;
   background-size: cover;
-  background-position: bottom calc(2em + 1ch) right;
+  background-position: bottom calc(2em + 1ch) center;
   background-repeat: no-repeat;
   overflow: hidden;
   align-items: stretch;
