@@ -1,17 +1,12 @@
-<div class="surface">
-  <div class="notice"><%= flash[:notice] %></div>
-  Menu-esque thing
-
-  <ul>
-    <li><%= link_to "Edit Event", edit_event_path(@event) %></li>
-    <li><%= link_to "Schedule a new occurrence", new_event_schedule_path(@event) %></li>
-  </ul>
-
-  Upcoming
-
-  <ul>
-    <% @event.scheduled_events.each do |scheduled_event| %>
-      <li><%= link_to "#{scheduled_event.starts_at} (#{distance_of_time_in_words(Time.now, scheduled_event.starts_at)} away)", event_schedule_path(@event, scheduled_event) %></li>
-    <% end %>
-  </ul>
+<div class="container">
+  <div class="surface content">
+    <div class="notice"><%= flash[:notice] %></div>
+    <h1><%= @event.name %> <%= @scheduled_event.name %></h1>
+    
+    <h1><%= @scheduled_event.competitors.count %></h1>
+    Current competitors <%= link_to "(See all)", manage_scheduled_event_competitors_path %>
+    
+    <h1><%= @scheduled_event.teams.count %></h1>
+    Current teams <%= link_to "(See all)", manage_scheduled_event_teams_path %>
+  </div>
 </div>

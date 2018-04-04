@@ -26,4 +26,8 @@ Rails.application.routes.draw do
   get '/:event_id/:id', controller: 'scheduled_events', action: :show, as: 'scheduled_event'
   patch '/:event_id/:id', controller: 'scheduled_events', action: :update
   get '/:event_id/:id/edit', controller: 'scheduled_events', action: :edit, as: 'edit_scheduled_event'
+
+  get ':event_id/:id/manage', controller: 'organiser_panel', action: :index, as: 'manage_scheduled_event'
+  get ':event_id/:id/manage/competitors', controller: 'organiser_panel', action: 'competitors', as: 'manage_scheduled_event_competitors'
+  get ':event_id/:id/manage/teams', controller: 'organiser_panel', action: 'teams', as: 'manage_scheduled_event_teams'
 end
