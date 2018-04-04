@@ -8,7 +8,7 @@
 # server "db.example.com", user: "deploy", roles: %w{db}
 
 server "sodalite", user: "deploy", roles: %w{app db web}
-set :deploy_to, "/apps/seedbase-qa"
+set :deploy_to, "/apps/seedbase"
 
 
 
