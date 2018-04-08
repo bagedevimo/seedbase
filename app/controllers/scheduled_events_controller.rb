@@ -3,7 +3,10 @@ class ScheduledEventsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
   before_action :authenticate_organiser!, except: [:show, :create]
 
-  def show; end
+  def show
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
+    @rendered_description = markdown.render(@scheduled_event.description || "")
+  end
 
   def new
     @scheduled_event = @event.scheduled_events.new
@@ -45,6 +48,7 @@ class ScheduledEventsController < ApplicationController
       :starts_at,
       :ends_at,
       :location_text,
+      :description,
       :lat,
       :long,
       :maximum_team_size,

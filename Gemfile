@@ -17,6 +17,7 @@ gem 'webpacker'
 # gem 'mini_racer', platforms: :ruby
 
 gem 'mailgun-ruby', '~>1.1.6'
+gem 'redcarpet'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'

@@ -19,6 +19,9 @@
   <%= f.label :location_text, "Description of location" %>
   <%= f.text_area :location_text, required: true %>
 
+  <%= f.label :description, "Description / Content of page" %>
+  <%= f.text_area :description %>
+
   <%= f.label "Location (Coordinates)" %>
   <%= f.text_field :lat, placeholder: "Latitude" %>
   <%= f.text_field :long, placeholder: "Longitide" %>
