@@ -1,0 +1,39 @@
+<% if current_user %>
+      <section>
+        <h1>Team</h1>
+
+        <% if current_competitor&.team %>
+            You're competiting in team <b><%= current_competitor.team.name %></b>
+
+            <%= form_with url: team_path(current_competitor.team), method: :delete, local: true do |f| %>
+              <%= f.button "Leave team" %>
+            <% end %>
+
+            <p>
+              <%= form_with url: team_invites_path, local: true do |f| %>
+                <%= f.hidden_field :team_id, value: current_competitor.team.id %>
+                <%= f.text_field :email, placeholder: "Email address" %>
+                <%= f.button "Invite user" %>
+              <% end %>
+
+              <% if current_competitor.team.team_invites.any? %>
+                <br />
+                Pending invites to Golden Eagle<br />
+                <ul>
+                  <% current_competitor.team.team_invites.each do |invite| %>
+                    <li><%= invite.user.name %> invited <%= invite.invited_email %> <%= distance_of_time_in_words(Time.now, invite.created_at) %> ago</li>
+                  <% end %>
+                </ul>
+              <% end %>
+            </p>
+        <% else %>
+          Create a team
+
+          <%= form_with model: @scheduled_event.teams.new, url: teams_path, local: true do |f| %>
+            <%= f.hidden_field :scheduled_event_id, value: @scheduled_event.id %>
+            <%= f.text_field :name, placeholder: "Team name" %>
+            <%= f.button "Create team" %>
+          <% end %>
+        <% end %>
+      </section>
+    <% end %>

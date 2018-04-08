@@ -1,0 +1,4 @@
+Hi <%= @invite.invited_email %>!
+
+You've been invited to join the team <%= @invite.team.name %> for <%= @invite.team.scheduled_event.event.name %>.
+You can accept the invitation and join the team by visiting <%= link_to team_invite_accept_url(@invite.id), team_invite_accept_url(@invite.id) %>

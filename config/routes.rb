@@ -17,6 +17,9 @@ Rails.application.routes.draw do
 
   resources :competitors
   resources :teams
+  resources :team_invites do
+    get :accept
+  end
 
   get '/:id', controller: 'events', action: :show, as: 'event'
   patch '/:id', controller: 'events', action: :update
@@ -33,10 +36,4 @@ Rails.application.routes.draw do
     resources :teams, as: "manage_scheduled_event_teams"
     resources :competitors, as: "manage_scheduled_event_competitors"
   end
-
-  # get ':event_id/:scheduled_id/manage', controller: 'organiser_panel', action: :index, as: 'manage_scheduled_event'
-  # get ':event_id/:scheduled_id/manage/competitors', controller: 'organiser_panel', action: 'competitors', as: 'manage_scheduled_event_competitors'
-  # get ':event_id/:scheduled_id/manage/teams', controller: 'organiser_panel', action: 'teams', as: 'manage_scheduled_event_teams'
-  # get ':event_id/:scheduled_id/manage/teams/:team_id', controller: 'organiser_panel', action: 'view_team', as: 'manage_scheduled_event_team'
-  # delete ':event_id/:scheduled_id/manage/teams/:team_id', controller: 'organiser_panel', action: 'destroy_team', as: 'manage_scheduled_event_team'
 end

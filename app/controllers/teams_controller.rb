@@ -34,9 +34,6 @@ class TeamsController < ApplicationController
   def find_team
     @team = Team.find(params[:id])
     @scheduled_event = @team.scheduled_event
-
-    puts "@team: #{@team}"
-    puts "sch: #{@scheduled_event}"
   end
 
   def team_params
