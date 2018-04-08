@@ -36,7 +36,7 @@ class ScheduledEventsController < ApplicationController
 
   def find_scheduled_event
     @event = Event.find_by_slug(params[:event_id])
-    @scheduled_event = @event.scheduled_events.find_by_slug(params[:id])
+    @scheduled_event = @event.scheduled_events.find_by_slug(params[:scheduled_id])
   end
 
   def scheduled_event_params

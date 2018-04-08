@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="surface content">
+    <div class="notice"><%= flash[:notice] %></div>
+    <h2>Teams for <%= @event.name %> <%= @scheduled_event.name %></h2>
+    
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>#</th>
+        <th>Actions</th>
+      </tr>
+    <% @teams.each do |team| %>
+      <tr>
+        <td><%= team.name %></td>
+        <td><%= team.members.count %></td>
+        <td>
+          <%= form_with url: manage_scheduled_event_team_path(@scheduled_event, @event, team), local: true, method: :delete do |f| %>
+            <%= f.button "Remove from event" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+</div>

@@ -7,7 +7,7 @@
   <% if current_user_organiser_for?(@event) %>
   <div class="management">
     <span>You're an organiser for <%= @event.name %>.</span>
-    <%= link_to "Manage", manage_scheduled_event_path(@event, @scheduled_event), class: "button" %>
+    <%= link_to "Manage", manage_scheduled_event_path, class: "button" %>
   </div>
   <% end %>
 
