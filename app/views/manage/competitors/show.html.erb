@@ -4,6 +4,8 @@
     <h2><%= @event.name %> <%= @scheduled_event.name %></h2>
     <h3>Competitor <%= @competitor.user.name %></h3>
 
-    Team: <%= link_to @competitor.team.name, manage_scheduled_event_team_path(@event, @scheduled_event, @competitor.team) %>
+    <% if @competitor.team %>
+      Team: <%= link_to @competitor.team.name, manage_scheduled_event_team_path(@event, @scheduled_event, @competitor.team) %>
+    <% end %>
   </div>
 </div>

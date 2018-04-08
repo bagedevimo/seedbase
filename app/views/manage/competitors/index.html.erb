@@ -12,9 +12,9 @@
     <% @competitors.each do |competitor| %>
       <tr>
         <td><%= link_to competitor.user.name, manage_scheduled_event_competitor_path(@event, @scheduled_event, competitor) %></td>
-        <td><%= link_to competitor&.team&.name, manage_scheduled_event_team_path(@event, @scheduled_event, competitor&.team) %></td>
+        <td><% if competitor.team %><%= link_to competitor&.team&.name, manage_scheduled_event_team_path(@event, @scheduled_event, competitor&.team) %><% end %></td>
         <td>
-          <%= form_with url: manage_scheduled_event_team_path(@scheduled_event, @event, competitor&.team), local: true, method: :delete do |f| %>
+          <%= form_with url: manage_scheduled_event_team_path(@scheduled_event, @event, competitor), local: true, method: :delete do |f| %>
             <%= f.button "Remove from event" %>
           <% end %>
         </td>

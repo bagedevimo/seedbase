@@ -19,7 +19,8 @@ class Manage::TeamsController < ApplicationController
   private
 
   def find_event
+    puts "params: #{params}"
     @event = Event.find_by(slug: params[:event_id])
-    @scheduled_event = ScheduledEvent.find_by(slug: params[:scheduled_id])
+    @scheduled_event = @event.scheduled_events.find_by(slug: params[:scheduled_id])
   end
 end
