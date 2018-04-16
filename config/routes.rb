@@ -12,28 +12,21 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :edit, :update]
 
-  resources :events, only: [:index, :new, :create]
-  resources :scheduled_events, only: [:create]
-
   resources :competitors
   resources :teams
   resources :team_invites do
     get :accept
   end
 
-  get '/:id', controller: 'events', action: :show, as: 'event'
-  patch '/:id', controller: 'events', action: :update
-  get '/:id/edit', controller: 'events', action: :edit, as: 'edit_event'
+  resources :events, param: "event_slug", path: ""
 
-  get '/:event_id/new', controller: 'scheduled_events', action: :new, as: 'new_scheduled_event'
-  get '/:event_id/:scheduled_id', controller: 'scheduled_events', action: :show, as: 'scheduled_event'
-  patch '/:event_id/:scheduled_id', controller: 'scheduled_events', action: :update
-  get '/:event_id/:scheduled_id/edit', controller: 'scheduled_events', action: :edit, as: 'edit_scheduled_event'
+  scope ':event_slug/' do
+    resources :scheduled_events, param: "scheduled_slug", path: "", as: "scheduled_event"
+  end
 
-  # The entirety of the fucking event mangement area
-  scope ':event_id/:scheduled_id/manage', module: "manage" do
-    get '/', controller: 'manage', action: :index, as: "manage_scheduled_event"
-    resources :teams, as: "manage_scheduled_event_teams"
-    resources :competitors, as: "manage_scheduled_event_competitors"
+  scope ':event_slug/:scheduled_slug/manage', module: "manage", as: "manage_scheduled_event" do
+    get '/', controller: 'manage', action: :index
+    resources :teams, as: "teams"
+    resources :competitors, as: "competitors"
   end
 end
